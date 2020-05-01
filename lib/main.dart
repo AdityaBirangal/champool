@@ -18,9 +18,58 @@ class ChampoolApp extends StatelessWidget {
                 color: Colors.greenAccent,
                 child: Text(
                   "    Play    ",
-                  style: TextStyle(fontSize: 40),
+                  style: TextStyle(fontSize: 30),
                 ),
-              )
+                onPressed: () {},
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              FlatButton(
+                padding: EdgeInsets.all(10),
+                color: Colors.greenAccent,
+                child: Text(
+                  "    Option    ",
+                  style: TextStyle(fontSize: 30),
+                ),
+                onPressed: () {},
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              FlatButton(
+                padding: EdgeInsets.all(10),
+                color: Colors.greenAccent,
+                child: Text(
+                  "    Help    ",
+                  style: TextStyle(fontSize: 30),
+                ),
+                onPressed: () {},
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              FlatButton(
+                padding: EdgeInsets.all(10),
+                color: Colors.greenAccent,
+                child: Text(
+                  "    About    ",
+                  style: TextStyle(fontSize: 30),
+                ),
+                onPressed: () {},
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              FlatButton(
+                padding: EdgeInsets.all(10),
+                color: Colors.greenAccent,
+                child: Text(
+                  "    Exit    ",
+                  style: TextStyle(fontSize: 30),
+                ),
+                onPressed: () {},
+              ),
             ],
           ),
         ),
