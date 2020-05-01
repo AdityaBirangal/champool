@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:champool/screen/playScreen.dart';
 import 'package:champool/screen/optionScreen.dart';
+import 'package:champool/screen/helpScreen.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -18,6 +19,8 @@ class ChampoolApp extends StatelessWidget {
           children: <Widget>[
             Image.asset("images/Champool_Logo.png"),
             SizedBox(height: 10),
+
+//Play Screen
             FlatButton(
               padding: EdgeInsets.all(5),
               color: Colors.greenAccent,
@@ -31,6 +34,8 @@ class ChampoolApp extends StatelessWidget {
               },
             ),
             SizedBox(height: 10),
+
+//Option Screen
             FlatButton(
               padding: EdgeInsets.all(5),
               color: Colors.greenAccent,
@@ -44,6 +49,8 @@ class ChampoolApp extends StatelessWidget {
               },
             ),
             SizedBox(height: 10),
+
+//Help Screen
             FlatButton(
               padding: EdgeInsets.all(5),
               color: Colors.greenAccent,
@@ -51,9 +58,14 @@ class ChampoolApp extends StatelessWidget {
                 "    Help    ",
                 style: TextStyle(fontSize: 30),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => HelpScreen()));
+              },
             ),
             SizedBox(height: 10),
+
+//About Screen
             FlatButton(
               padding: EdgeInsets.all(5),
               color: Colors.greenAccent,
@@ -64,6 +76,8 @@ class ChampoolApp extends StatelessWidget {
               onPressed: () {},
             ),
             SizedBox(height: 10),
+
+//Exit App
             FlatButton(
               padding: EdgeInsets.all(5),
               color: Colors.greenAccent,
