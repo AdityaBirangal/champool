@@ -3,6 +3,7 @@ import 'package:champool/screen/playScreen.dart';
 import 'package:champool/screen/optionScreen.dart';
 import 'package:champool/screen/helpScreen.dart';
 import 'package:champool/screen/aboutScreen.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -89,7 +90,10 @@ class ChampoolApp extends StatelessWidget {
                 "    Exit    ",
                 style: TextStyle(fontSize: 30),
               ),
-              onPressed: () {},
+              onPressed: () {
+                //TODO: Work only with android (ISO don't allow)
+                SystemNavigator.pop();
+              },
             ),
           ],
         ),
