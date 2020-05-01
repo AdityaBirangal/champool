@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:champool/screen/playScreen.dart';
 import 'package:champool/screen/optionScreen.dart';
 import 'package:champool/screen/helpScreen.dart';
+import 'package:champool/screen/aboutScreen.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -73,7 +74,10 @@ class ChampoolApp extends StatelessWidget {
                 "    About    ",
                 style: TextStyle(fontSize: 30),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => AboutScreen()));
+              },
             ),
             SizedBox(height: 10),
 
