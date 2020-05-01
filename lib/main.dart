@@ -13,6 +13,10 @@ class ChampoolApp extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              Image.asset("images/Champool_Logo.png"),
+              SizedBox(
+                height: 20,
+              ),
               FlatButton(
                 padding: EdgeInsets.all(10),
                 color: Colors.greenAccent,
