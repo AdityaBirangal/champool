@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:champool/Brain/path.dart';
 
 class PlayScreen extends StatefulWidget {
   @override
@@ -8,6 +9,8 @@ class PlayScreen extends StatefulWidget {
 class _PlayScreenState extends State<PlayScreen> {
   double posiBottom = 0;
   double posiLeft = 0;
+  Fixedpath fixedpath = Fixedpath();
+  double posiNumber = 11;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,58 +22,34 @@ class _PlayScreenState extends State<PlayScreen> {
               children: <Widget>[
                 Image.asset(
                   "images/Board.png",
+                  height: 400,
+                  width: 400,
                 ),
                 Positioned(
                   bottom: posiBottom,
                   left: posiLeft,
                   child: Image.asset(
                     "images/Champool_Logo.png",
-                    height: 50,
+                    height: 30,
                   ),
                 ),
               ],
             ),
-            FlatButton(
-              color: Colors.redAccent,
-              child: Text(
-                "1",
-              ),
-              onPressed: () {
-                posiBottom = 0;
-                posiLeft = 0;
-                setState(() {});
+            TextField(
+              decoration: InputDecoration(hintText: "Enter Position"),
+              onChanged: (value) {
+                posiNumber = double.parse(value);
               },
             ),
             FlatButton(
               color: Colors.redAccent,
               child: Text(
-                "2",
+                "Update",
               ),
               onPressed: () {
-                posiBottom = 0;
-                posiLeft = 300;
-                setState(() {});
-              },
-            ),
-            FlatButton(
-              color: Colors.redAccent,
-              child: Text(
-                "3",
-              ),
-              onPressed: () {
-                posiBottom = 300;
-                posiLeft = 300;
-                setState(() {});
-              },
-            ),
-            FlatButton(
-              color: Colors.redAccent,
-              child: Text(
-                "4",
-              ),
-              onPressed: () {
-                posiBottom = 300;
-                posiLeft = 0;
+                print("2 Botton Pressed");
+                posiBottom = fixedpath.getBottomPosi(posiNumber);
+                posiLeft = fixedpath.getLeftPosi(posiNumber);
                 setState(() {});
               },
             ),
