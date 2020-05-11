@@ -7,11 +7,19 @@ class PlayScreen extends StatefulWidget {
 }
 
 class _PlayScreenState extends State<PlayScreen> {
+  Fixedpath fixedpath = Fixedpath();
+  Redpath redpath = Redpath();
   double posiBottom = 0;
   double posiLeft = 0;
-  Fixedpath fixedpath = Fixedpath();
   double posiNumber = 11;
+  double increment = 0;
   @override
+  initState() {
+    posiBottom =
+        fixedpath.getBottomPosi(redpath.getRedPosi(redPosiIncrement: 0));
+    posiLeft = fixedpath.getLeftPosi(redpath.getRedPosi(redPosiIncrement: 0));
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
@@ -22,8 +30,8 @@ class _PlayScreenState extends State<PlayScreen> {
               children: <Widget>[
                 Image.asset(
                   "images/Board.png",
-                  height: 400,
-                  width: 400,
+                  height: 360,
+                  width: 360,
                 ),
                 Positioned(
                   bottom: posiBottom,
@@ -35,23 +43,66 @@ class _PlayScreenState extends State<PlayScreen> {
                 ),
               ],
             ),
+            Text("${redpath.getRedPosi(redPosiIncrement: 0)}"),
             TextField(
               decoration: InputDecoration(hintText: "Enter Position"),
               onChanged: (value) {
                 posiNumber = double.parse(value);
+                increment = double.parse(value);
               },
             ),
-            FlatButton(
-              color: Colors.redAccent,
-              child: Text(
-                "Update",
-              ),
-              onPressed: () {
-                print("2 Botton Pressed");
-                posiBottom = fixedpath.getBottomPosi(posiNumber);
-                posiLeft = fixedpath.getLeftPosi(posiNumber);
-                setState(() {});
-              },
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                FlatButton(
+                  color: Colors.redAccent,
+                  child: Text(
+                    "New",
+                  ),
+                  onPressed: () {
+                    print("New Botton Pressed");
+                    print("${redpath.redPosiNumber}");
+                    posiBottom = fixedpath
+                        .getBottomPosi(redpath.getRedPosi(redPosiIncrement: 1));
+                    posiLeft = fixedpath.getLeftPosi(redpath.getRedPosi(
+                        redPosiIncrement:
+                            0)); //Dont incriment second time, we already incremented in posiBottom
+
+                    setState(() {});
+                  },
+                ),
+                SizedBox(width: 5),
+                FlatButton(
+                  color: Colors.redAccent,
+                  child: Text(
+                    "Restore",
+                  ),
+                  onPressed: () {
+                    print("Restore Botton Pressed");
+                    redpath.getRedHomePosi();
+                    posiBottom = fixedpath
+                        .getBottomPosi(redpath.getRedPosi(redPosiIncrement: 1));
+                    posiLeft = fixedpath
+                        .getLeftPosi(redpath.getRedPosi(redPosiIncrement: 1));
+                    setState(() {});
+                  },
+                ),
+                SizedBox(width: 5),
+                FlatButton(
+                  color: Colors.redAccent,
+                  child: Text(
+                    "Update",
+                  ),
+                  onPressed: () {
+                    print("2 Botton Pressed");
+                    posiBottom = fixedpath
+                        .getBottomPosi(redpath.getRedPosi(redPosiIncrement: 1));
+                    posiLeft = fixedpath
+                        .getLeftPosi(redpath.getRedPosi(redPosiIncrement: 1));
+                    setState(() {});
+                  },
+                ),
+              ],
             ),
             SizedBox(height: 5),
             FlatButton(
