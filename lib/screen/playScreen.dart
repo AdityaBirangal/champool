@@ -35,6 +35,7 @@ class _PlayScreenState extends State<PlayScreen> {
   }
 
   Widget build(BuildContext context) {
+    increment = 1; //To increase Goti 1 by 1
     return Scaffold(
       backgroundColor: Colors.greenAccent,
       body: Center(
@@ -58,9 +59,14 @@ class _PlayScreenState extends State<PlayScreen> {
                       width: 24,
                       color: Colors.red,
                     ),
-                    onTap: () {
+                    onTap: () async {
                       print("red1 Tap");
-                      updateRed1Posi();
+                      double i = 0;
+                      while (i < dice.getDiceNum()) {
+                        await Future.delayed(Duration(milliseconds: 500));
+                        updateRed1Posi();
+                        i++;
+                      }
                     },
                   ),
                 ),
@@ -74,9 +80,14 @@ class _PlayScreenState extends State<PlayScreen> {
                       width: 24,
                       color: Colors.red,
                     ),
-                    onTap: () {
+                    onTap: () async {
                       print("red2 Tap");
-                      updateRed2Posi();
+                      double i = 0;
+                      while (i < dice.getDiceNum()) {
+                        await Future.delayed(Duration(milliseconds: 500));
+                        updateRed2Posi();
+                        i++;
+                      }
                     },
                   ),
                 ),
@@ -90,9 +101,14 @@ class _PlayScreenState extends State<PlayScreen> {
                       width: 24,
                       color: Colors.red,
                     ),
-                    onTap: () {
+                    onTap: () async {
                       print("red3 Tap");
-                      updateRed3Posi();
+                      double i = 0;
+                      while (i < dice.getDiceNum()) {
+                        await Future.delayed(Duration(milliseconds: 500));
+                        updateRed3Posi();
+                        i++;
+                      }
                     },
                   ),
                 ),
@@ -106,9 +122,14 @@ class _PlayScreenState extends State<PlayScreen> {
                       width: 24,
                       color: Colors.red,
                     ),
-                    onTap: () {
+                    onTap: () async {
                       print("red4 Tap");
-                      updateRed4Posi();
+                      double i = 0;
+                      while (i < dice.getDiceNum()) {
+                        await Future.delayed(Duration(milliseconds: 500));
+                        updateRed4Posi();
+                        i++;
+                      }
                     },
                   ),
                 ),
