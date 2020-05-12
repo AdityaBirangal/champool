@@ -10,15 +10,20 @@ class PlayScreen extends StatefulWidget {
 class _PlayScreenState extends State<PlayScreen> {
   Fixedpath fixedpath = Fixedpath();
   Redpath redpath = Redpath();
-  double posiBottom = 0;
-  double posiLeft = 0;
+  Dice dice = Dice();
+  double red1PosiBottom = 0;
+  double red1PosiLeft = 0;
+
+  double red2PosiBottom = 0;
+  double red2PosiLeft = 0;
+
   double posiNumber = 11;
   double increment = 0;
+
   @override
   initState() {
-    posiBottom =
-        fixedpath.getBottomPosi(redpath.getRedPosi(redPosiIncrement: 0));
-    posiLeft = fixedpath.getLeftPosi(redpath.getRedPosi(redPosiIncrement: 0));
+    updateRed1Posi();
+    updateRed2Posi();
   }
 
   Widget build(BuildContext context) {
@@ -36,26 +41,43 @@ class _PlayScreenState extends State<PlayScreen> {
                   width: 360,
                 ),
                 Positioned(
-                  bottom: posiBottom,
-                  left: posiLeft,
-                  child: IconButton(
-                    icon: Image.asset(
-                      "images/Champool_Logo.png",
-                      height: 30,
+                  bottom: red1PosiBottom,
+                  left: red1PosiLeft,
+                  child: GestureDetector(
+                    child: Container(
+                      child: Text("1"),
+                      height: 24,
+                      width: 24,
+                      color: Colors.red,
                     ),
-                    onPressed: () {
-                      print("Icon Presses");
+                    onTap: () {
+                      print("red1 Tap");
+                      updateRed1Posi();
+                    },
+                  ),
+                ),
+                Positioned(
+                  bottom: red2PosiBottom,
+                  left: red2PosiLeft,
+                  child: GestureDetector(
+                    child: Container(
+                      child: Text("2"),
+                      height: 24,
+                      width: 24,
+                      color: Colors.blue,
+                    ),
+                    onTap: () {
+                      print("red2 Tap");
+                      updateRed2Posi();
                     },
                   ),
                 ),
               ],
             ),
-            Text("${redpath.getRedPosi(redPosiIncrement: 0)}"),
             Container(height: 100, width: 100, child: Dice()),
             TextField(
-              decoration: InputDecoration(hintText: "Enter Position"),
+              decoration: InputDecoration(hintText: "Enter Increment"),
               onChanged: (value) {
-                posiNumber = double.parse(value);
                 increment = double.parse(value);
               },
             ),
@@ -68,45 +90,6 @@ class _PlayScreenState extends State<PlayScreen> {
                     "New",
                   ),
                   onPressed: () {
-                    print("New Botton Pressed");
-                    print("${redpath.redPosiNumber}");
-                    posiBottom = fixedpath.getBottomPosi(
-                        redpath.getRedPosi(redPosiIncrement: increment));
-                    posiLeft = fixedpath.getLeftPosi(redpath.getRedPosi(
-                        redPosiIncrement:
-                            0)); //Dont incriment second time, we already incremented in posiBottom
-
-                    setState(() {});
-                  },
-                ),
-                SizedBox(width: 5),
-                FlatButton(
-                  color: Colors.redAccent,
-                  child: Text(
-                    "Restore",
-                  ),
-                  onPressed: () {
-                    print("Restore Botton Pressed");
-                    redpath.getRedHomePosi();
-                    posiBottom = fixedpath
-                        .getBottomPosi(redpath.getRedPosi(redPosiIncrement: 1));
-                    posiLeft = fixedpath
-                        .getLeftPosi(redpath.getRedPosi(redPosiIncrement: 1));
-                    setState(() {});
-                  },
-                ),
-                SizedBox(width: 5),
-                FlatButton(
-                  color: Colors.redAccent,
-                  child: Text(
-                    "Update",
-                  ),
-                  onPressed: () {
-                    print("2 Botton Pressed");
-                    posiBottom = fixedpath
-                        .getBottomPosi(redpath.getRedPosi(redPosiIncrement: 1));
-                    posiLeft = fixedpath
-                        .getLeftPosi(redpath.getRedPosi(redPosiIncrement: 1));
                     setState(() {});
                   },
                 ),
@@ -128,5 +111,27 @@ class _PlayScreenState extends State<PlayScreen> {
         ),
       ),
     );
+  }
+
+  void updateRed1Posi() {
+    print("${redpath.red1PosiNumber}");
+    red1PosiBottom = fixedpath.getBottomPosi(
+        posiNumber: redpath.getRed1Posi(red1PosiIncrement: increment));
+    red1PosiLeft = fixedpath.getLeftPosi(
+        posiNumber: redpath.getRed1Posi(red1PosiIncrement: 0));
+    //Dont incriment second time, we already incremented in posiBottom
+
+    setState(() {});
+  }
+
+  void updateRed2Posi() {
+    print("${redpath.red2PosiNumber}");
+    red2PosiBottom = fixedpath.getBottomPosi(
+        posiNumber: redpath.getRed2Posi(red2PosiIncrement: increment));
+    red2PosiLeft = fixedpath.getLeftPosi(
+        posiNumber: redpath.getRed2Posi(red2PosiIncrement: 0));
+    //Dont incriment second time, we already incremented in posiBottom
+
+    setState(() {});
   }
 }

@@ -10,7 +10,7 @@ Fixed Positions
 class Fixedpath {
   double fixedPosiNumber = 11;
 
-  double getBottomPosi(double posiNumber) {
+  double getBottomPosi({double posiNumber}) {
     print("Inside Fixedpath/getBottomPosi");
     int tempInt = (posiNumber / 10).floor() -
         1; //-1 so, (40 + 80 * tempDouble) this works well
@@ -19,7 +19,7 @@ class Fixedpath {
     return 36 + 72 * tempDouble;
   }
 
-  double getLeftPosi(double posiNumber) {
+  double getLeftPosi({double posiNumber}) {
     print("Inside Fixedpath/LeftPosi");
     int tempInt = (posiNumber % 10).floor() - 1;
     double tempDouble = tempInt.ceilToDouble();
@@ -29,7 +29,10 @@ class Fixedpath {
 }
 
 class Redpath {
-  double redPosiNumber = 1;
+  double red1PosiNumber = 1;
+  double red2PosiNumber = 1;
+  double red3PosiNumber = 1;
+  double red4PosiNumber = 1;
 
   /*
 Fixed Positions
@@ -68,18 +71,23 @@ Fixed Positions
     25: 33
   };
 
-  double getRedPosi({double redPosiIncrement}) {
-    redPosiNumber += redPosiIncrement;
-    print("Redpath/redPathMap ${redPathMap[redPosiNumber]}");
+  double getRed1Posi({double red1PosiIncrement}) {
+    red1PosiNumber += red1PosiIncrement;
+    print("Redpath/redPathMap ${redPathMap[red1PosiNumber]}");
 
-    print("Inside Redpath/getRedPosi");
-    print("Redpath/redPosiNumber $redPosiNumber");
+    print("Inside Redpath/getRed1Posi");
+    print("Redpath/red1PosiNumber $red1PosiNumber");
 
-    return redPathMap[redPosiNumber];
+    return redPathMap[red1PosiNumber];
   }
 
-  void getRedHomePosi() {
-    redPosiNumber = 1;
-    getRedPosi();
+  double getRed2Posi({double red2PosiIncrement}) {
+    red2PosiNumber += red2PosiIncrement;
+    print("Redpath/redPathMap ${redPathMap[red2PosiNumber]}");
+
+    print("Inside Redpath/getRed2Posi");
+    print("Redpath/red2PosiNumber $red2PosiNumber");
+
+    return redPathMap[red2PosiNumber];
   }
 }
