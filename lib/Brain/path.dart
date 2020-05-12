@@ -8,22 +8,118 @@ Fixed Positions
 */
 
 class Fixedpath {
-  double posiNumber = 11;
+  double fixedPosiNumber = 11;
 
-  double getBottomPosi(double posiNumber) {
-    print("Now inside Fixedpath/getBottomPosi");
+  double getBottomPosi({double posiNumber, String gotiColor}) {
+    double bottomAdjestment = 0;
+
+    if (gotiColor == "red") {
+      bottomAdjestment = 12;
+    }
+
+    print("Inside Fixedpath/getBottomPosi");
     int tempInt = (posiNumber / 10).floor() -
         1; //-1 so, (40 + 80 * tempDouble) this works well
     double tempDouble = tempInt.ceilToDouble();
-    print(40 + 80 * tempDouble);
-    return 40 + 80 * tempDouble;
+    print("Bottom Pixel : ${36 + 72 * tempDouble + bottomAdjestment}");
+    return 36 + 72 * tempDouble + bottomAdjestment;
   }
 
-  double getLeftPosi(double posiNumber) {
-    print("Now inside Fixedpath/LeftPosi");
+  double getLeftPosi({double posiNumber, String gotiColor}) {
+    double leftAdjestment = 0;
+
+    if (gotiColor == "red") {
+      leftAdjestment = -12;
+    }
+
+    print("Inside Fixedpath/LeftPosi");
     int tempInt = (posiNumber % 10).floor() - 1;
     double tempDouble = tempInt.ceilToDouble();
-    print(40 + 80 * tempDouble);
-    return 40 + 80 * tempDouble;
+    print("Left Pixel : ${36 + 72 * tempDouble + leftAdjestment}");
+    return 36 + 72 * tempDouble + leftAdjestment;
+  }
+}
+
+class Redpath {
+  double red1PosiNumber = 1;
+  double red2PosiNumber = 1;
+  double red3PosiNumber = 1;
+  double red4PosiNumber = 1;
+
+  /*
+Fixed Positions
+51 52 53 54 55
+41 42 43 44 45
+31 32 33 34 35
+21 22 23 24 25
+11 12 13 14 15
+*/
+
+  Map<double, double> redPathMap = {
+    1: 13,
+    2: 14,
+    3: 15,
+    4: 25,
+    5: 35,
+    6: 45,
+    7: 55,
+    8: 54,
+    9: 53,
+    10: 52,
+    11: 51,
+    12: 41,
+    13: 31,
+    14: 21,
+    15: 11,
+    16: 12,
+    17: 22,
+    18: 32,
+    19: 42,
+    20: 43,
+    21: 44,
+    22: 34,
+    23: 24,
+    24: 23,
+    25: 33
+  };
+
+  double getRed1Posi({double red1PosiIncrement}) {
+    red1PosiNumber += red1PosiIncrement;
+    print("Redpath/redPathMap ${redPathMap[red1PosiNumber]}");
+
+    print("Inside Redpath/getRed1Posi");
+    print("Redpath/red1PosiNumber $red1PosiNumber");
+
+    return redPathMap[red1PosiNumber];
+  }
+
+  double getRed2Posi({double red2PosiIncrement}) {
+    red2PosiNumber += red2PosiIncrement;
+    print("Redpath/redPathMap ${redPathMap[red2PosiNumber]}");
+
+    print("Inside Redpath/getRed2Posi");
+    print("Redpath/red2PosiNumber $red2PosiNumber");
+
+    return redPathMap[red2PosiNumber];
+  }
+
+  double getRed3Posi({double red3PosiIncrement}) {
+    red3PosiNumber += red3PosiIncrement;
+    print("Redpath/redPathMap ${redPathMap[red3PosiNumber]}");
+
+    print("Inside Redpath/getRed3Posi");
+    print("Redpath/red3PosiNumber $red3PosiNumber");
+
+    return redPathMap[red3PosiNumber];
+  }
+
+  double getRed4Posi({double red4PosiIncrement}) {
+    red4PosiNumber += red4PosiIncrement;
+    print("Redpath/redPathMap ${redPathMap[red4PosiNumber]}");
+
+    print("Inside Redpath/getRed4Posi");
+    print("Redpath/red4PosiNumber $red4PosiNumber");
+
+    return redPathMap[red4PosiNumber];
   }
 }
