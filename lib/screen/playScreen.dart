@@ -116,9 +116,11 @@ class _PlayScreenState extends State<PlayScreen> {
   void updateRed1Posi() {
     print("${redpath.red1PosiNumber}");
     red1PosiBottom = fixedpath.getBottomPosi(
-        posiNumber: redpath.getRed1Posi(red1PosiIncrement: increment));
+        posiNumber: redpath.getRed1Posi(red1PosiIncrement: increment),
+        gotiColor: "red");
     red1PosiLeft = fixedpath.getLeftPosi(
-        posiNumber: redpath.getRed1Posi(red1PosiIncrement: 0));
+        posiNumber: redpath.getRed1Posi(red1PosiIncrement: 0),
+        gotiColor: "red");
     //Dont incriment second time, we already incremented in posiBottom
 
     setState(() {});
@@ -127,9 +129,11 @@ class _PlayScreenState extends State<PlayScreen> {
   void updateRed2Posi() {
     print("${redpath.red2PosiNumber}");
     red2PosiBottom = fixedpath.getBottomPosi(
-        posiNumber: redpath.getRed2Posi(red2PosiIncrement: increment));
+        posiNumber: redpath.getRed2Posi(red2PosiIncrement: increment),
+        gotiColor: "red");
     red2PosiLeft = fixedpath.getLeftPosi(
-        posiNumber: redpath.getRed2Posi(red2PosiIncrement: 0));
+        posiNumber: redpath.getRed2Posi(red2PosiIncrement: 0),
+        gotiColor: "red");
     //Dont incriment second time, we already incremented in posiBottom
 
     setState(() {});

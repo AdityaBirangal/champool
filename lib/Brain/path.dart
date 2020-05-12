@@ -10,21 +10,33 @@ Fixed Positions
 class Fixedpath {
   double fixedPosiNumber = 11;
 
-  double getBottomPosi({double posiNumber}) {
+  double getBottomPosi({double posiNumber, String gotiColor}) {
+    double bottomAdjestment = 0;
+
+    if (gotiColor == "red") {
+      bottomAdjestment = 12;
+    }
+
     print("Inside Fixedpath/getBottomPosi");
     int tempInt = (posiNumber / 10).floor() -
         1; //-1 so, (40 + 80 * tempDouble) this works well
     double tempDouble = tempInt.ceilToDouble();
-    print("Bottom Pixel : ${36 + 72 * tempDouble}");
-    return 36 + 72 * tempDouble;
+    print("Bottom Pixel : ${36 + 72 * tempDouble + bottomAdjestment}");
+    return 36 + 72 * tempDouble + bottomAdjestment;
   }
 
-  double getLeftPosi({double posiNumber}) {
+  double getLeftPosi({double posiNumber, String gotiColor}) {
+    double leftAdjestment = 0;
+
+    if (gotiColor == "red") {
+      leftAdjestment = -12;
+    }
+
     print("Inside Fixedpath/LeftPosi");
     int tempInt = (posiNumber % 10).floor() - 1;
     double tempDouble = tempInt.ceilToDouble();
-    print("Left Pixel : ${36 + 72 * tempDouble}");
-    return 36 + 72 * tempDouble;
+    print("Left Pixel : ${36 + 72 * tempDouble + leftAdjestment}");
+    return 36 + 72 * tempDouble + leftAdjestment;
   }
 }
 
