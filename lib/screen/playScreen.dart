@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:champool/Brain/path.dart';
+import 'package:champool/Brain/dice.dart';
 
 class PlayScreen extends StatefulWidget {
   @override
@@ -22,6 +23,7 @@ class _PlayScreenState extends State<PlayScreen> {
 
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.greenAccent,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -36,14 +38,20 @@ class _PlayScreenState extends State<PlayScreen> {
                 Positioned(
                   bottom: posiBottom,
                   left: posiLeft,
-                  child: Image.asset(
-                    "images/Champool_Logo.png",
-                    height: 30,
+                  child: IconButton(
+                    icon: Image.asset(
+                      "images/Champool_Logo.png",
+                      height: 30,
+                    ),
+                    onPressed: () {
+                      print("Icon Presses");
+                    },
                   ),
                 ),
               ],
             ),
             Text("${redpath.getRedPosi(redPosiIncrement: 0)}"),
+            Container(height: 100, width: 100, child: Dice()),
             TextField(
               decoration: InputDecoration(hintText: "Enter Position"),
               onChanged: (value) {
@@ -62,8 +70,8 @@ class _PlayScreenState extends State<PlayScreen> {
                   onPressed: () {
                     print("New Botton Pressed");
                     print("${redpath.redPosiNumber}");
-                    posiBottom = fixedpath
-                        .getBottomPosi(redpath.getRedPosi(redPosiIncrement: 1));
+                    posiBottom = fixedpath.getBottomPosi(
+                        redpath.getRedPosi(redPosiIncrement: increment));
                     posiLeft = fixedpath.getLeftPosi(redpath.getRedPosi(
                         redPosiIncrement:
                             0)); //Dont incriment second time, we already incremented in posiBottom
