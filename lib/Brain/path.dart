@@ -102,4 +102,24 @@ Fixed Positions
 
     return redPathMap[red2PosiNumber];
   }
+
+  double getRed3Posi({double red3PosiIncrement}) {
+    red3PosiNumber += red3PosiIncrement;
+    print("Redpath/redPathMap ${redPathMap[red3PosiNumber]}");
+
+    print("Inside Redpath/getRed3Posi");
+    print("Redpath/red3PosiNumber $red3PosiNumber");
+
+    return redPathMap[red3PosiNumber];
+  }
+
+  double getRed4Posi({double red4PosiIncrement}) {
+    red4PosiNumber += red4PosiIncrement;
+    print("Redpath/redPathMap ${redPathMap[red4PosiNumber]}");
+
+    print("Inside Redpath/getRed4Posi");
+    print("Redpath/red4PosiNumber $red4PosiNumber");
+
+    return redPathMap[red4PosiNumber];
+  }
 }

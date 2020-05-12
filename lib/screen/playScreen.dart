@@ -17,6 +17,12 @@ class _PlayScreenState extends State<PlayScreen> {
   double red2PosiBottom = 0;
   double red2PosiLeft = 0;
 
+  double red3PosiBottom = 0;
+  double red3PosiLeft = 0;
+
+  double red4PosiBottom = 0;
+  double red4PosiLeft = 0;
+
   double posiNumber = 11;
   double increment = 0;
 
@@ -24,6 +30,8 @@ class _PlayScreenState extends State<PlayScreen> {
   initState() {
     updateRed1Posi();
     updateRed2Posi();
+    updateRed3Posi();
+    updateRed4Posi();
   }
 
   Widget build(BuildContext context) {
@@ -64,11 +72,43 @@ class _PlayScreenState extends State<PlayScreen> {
                       child: Text("2"),
                       height: 24,
                       width: 24,
-                      color: Colors.blue,
+                      color: Colors.red,
                     ),
                     onTap: () {
                       print("red2 Tap");
                       updateRed2Posi();
+                    },
+                  ),
+                ),
+                Positioned(
+                  bottom: red3PosiBottom,
+                  left: red3PosiLeft,
+                  child: GestureDetector(
+                    child: Container(
+                      child: Text("3"),
+                      height: 24,
+                      width: 24,
+                      color: Colors.red,
+                    ),
+                    onTap: () {
+                      print("red3 Tap");
+                      updateRed3Posi();
+                    },
+                  ),
+                ),
+                Positioned(
+                  bottom: red4PosiBottom,
+                  left: red4PosiLeft,
+                  child: GestureDetector(
+                    child: Container(
+                      child: Text("4"),
+                      height: 24,
+                      width: 24,
+                      color: Colors.red,
+                    ),
+                    onTap: () {
+                      print("red4 Tap");
+                      updateRed4Posi();
                     },
                   ),
                 ),
@@ -122,7 +162,6 @@ class _PlayScreenState extends State<PlayScreen> {
         posiNumber: redpath.getRed1Posi(red1PosiIncrement: 0),
         gotiColor: "red");
     //Dont incriment second time, we already incremented in posiBottom
-
     setState(() {});
   }
 
@@ -135,7 +174,30 @@ class _PlayScreenState extends State<PlayScreen> {
         posiNumber: redpath.getRed2Posi(red2PosiIncrement: 0),
         gotiColor: "red");
     //Dont incriment second time, we already incremented in posiBottom
+    setState(() {});
+  }
 
+  void updateRed3Posi() {
+    print("${redpath.red3PosiNumber}");
+    red3PosiBottom = fixedpath.getBottomPosi(
+        posiNumber: redpath.getRed3Posi(red3PosiIncrement: increment),
+        gotiColor: "red");
+    red3PosiLeft = fixedpath.getLeftPosi(
+        posiNumber: redpath.getRed3Posi(red3PosiIncrement: 0),
+        gotiColor: "red");
+    //Dont incriment second time, we already incremented in posiBottom
+    setState(() {});
+  }
+
+  void updateRed4Posi() {
+    print("${redpath.red4PosiNumber}");
+    red4PosiBottom = fixedpath.getBottomPosi(
+        posiNumber: redpath.getRed4Posi(red4PosiIncrement: increment),
+        gotiColor: "red");
+    red4PosiLeft = fixedpath.getLeftPosi(
+        posiNumber: redpath.getRed4Posi(red4PosiIncrement: 0),
+        gotiColor: "red");
+    //Dont incriment second time, we already incremented in posiBottom
     setState(() {});
   }
 }
