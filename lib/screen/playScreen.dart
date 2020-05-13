@@ -81,11 +81,16 @@ class _PlayScreenState extends State<PlayScreen> {
                     ),
                     onTap: () async {
                       print("red1 Tap");
-                      double i = 0;
-                      while (i < dice.getDiceNum()) {
-                        await Future.delayed(Duration(milliseconds: 500));
-                        updateRed1Posi();
-                        i++;
+                      print("whosTurn : $whosTurn");
+                      if (whosTurn == "red") {
+                        double i = 0;
+                        while (i < dice.getDiceNum()) {
+                          await Future.delayed(Duration(milliseconds: 500));
+                          updateRed1Posi();
+                          i++;
+                        }
+                        whosTurn = "green";
+                        print("whosTurn chenged to : $whosTurn");
                       }
                     },
                   ),
@@ -102,11 +107,16 @@ class _PlayScreenState extends State<PlayScreen> {
                     ),
                     onTap: () async {
                       print("red2 Tap");
-                      double i = 0;
-                      while (i < dice.getDiceNum()) {
-                        await Future.delayed(Duration(milliseconds: 500));
-                        updateRed2Posi();
-                        i++;
+                      print("whosTurn : $whosTurn");
+                      if (whosTurn == "red") {
+                        double i = 0;
+                        while (i < dice.getDiceNum()) {
+                          await Future.delayed(Duration(milliseconds: 500));
+                          updateRed2Posi();
+                          i++;
+                        }
+                        whosTurn = "green";
+                        print("whosTurn chenged to : $whosTurn");
                       }
                     },
                   ),
@@ -123,11 +133,16 @@ class _PlayScreenState extends State<PlayScreen> {
                     ),
                     onTap: () async {
                       print("red3 Tap");
-                      double i = 0;
-                      while (i < dice.getDiceNum()) {
-                        await Future.delayed(Duration(milliseconds: 500));
-                        updateRed3Posi();
-                        i++;
+                      print("whosTurn : $whosTurn");
+                      if (whosTurn == "red") {
+                        double i = 0;
+                        while (i < dice.getDiceNum()) {
+                          await Future.delayed(Duration(milliseconds: 500));
+                          updateRed3Posi();
+                          i++;
+                        }
+                        whosTurn = "green";
+                        print("whosTurn chenged to : $whosTurn");
                       }
                     },
                   ),
@@ -171,11 +186,16 @@ class _PlayScreenState extends State<PlayScreen> {
                     ),
                     onTap: () async {
                       print("green1 Tap");
-                      double i = 0;
-                      while (i < dice.getDiceNum()) {
-                        await Future.delayed(Duration(milliseconds: 500));
-                        updateGreen1Posi();
-                        i++;
+                      print("whosTurn : $whosTurn");
+                      if (whosTurn == "green") {
+                        double i = 0;
+                        while (i < dice.getDiceNum()) {
+                          await Future.delayed(Duration(milliseconds: 500));
+                          updateGreen1Posi();
+                          i++;
+                        }
+                        whosTurn = "red";
+                        print("whosTurn chenged to : $whosTurn");
                       }
                     },
                   ),
@@ -192,11 +212,16 @@ class _PlayScreenState extends State<PlayScreen> {
                     ),
                     onTap: () async {
                       print("green2 Tap");
-                      double i = 0;
-                      while (i < dice.getDiceNum()) {
-                        await Future.delayed(Duration(milliseconds: 500));
-                        updateGreen2Posi();
-                        i++;
+                      print("whosTurn : $whosTurn");
+                      if (whosTurn == "green") {
+                        double i = 0;
+                        while (i < dice.getDiceNum()) {
+                          await Future.delayed(Duration(milliseconds: 500));
+                          updateGreen2Posi();
+                          i++;
+                        }
+                        whosTurn = "red";
+                        print("whosTurn chenged to : $whosTurn");
                       }
                     },
                   ),
@@ -213,11 +238,16 @@ class _PlayScreenState extends State<PlayScreen> {
                     ),
                     onTap: () async {
                       print("green3 Tap");
-                      double i = 0;
-                      while (i < dice.getDiceNum()) {
-                        await Future.delayed(Duration(milliseconds: 500));
-                        updateGreen3Posi();
-                        i++;
+                      print("whosTurn : $whosTurn");
+                      if (whosTurn == "green") {
+                        double i = 0;
+                        while (i < dice.getDiceNum()) {
+                          await Future.delayed(Duration(milliseconds: 500));
+                          updateGreen3Posi();
+                          i++;
+                        }
+                        whosTurn = "red";
+                        print("whosTurn chenged to : $whosTurn");
                       }
                     },
                   ),
