@@ -11,8 +11,12 @@ class _PlayScreenState extends State<PlayScreen> {
   Fixedpath fixedpath = Fixedpath();
   RedPath redPath = RedPath();
   GreenPath greenPath = GreenPath();
-
   Dice dice = Dice();
+
+  double posiNumber = 11;
+  double increment = 0;
+  String whosTurn = "red";
+
   double red1PosiBottom = 0;
   double red1PosiLeft = 0;
 
@@ -36,9 +40,6 @@ class _PlayScreenState extends State<PlayScreen> {
 
   double green4PosiBottom = 0;
   double green4PosiLeft = 0;
-
-  double posiNumber = 11;
-  double increment = 0;
 
   @override
   initState() {
@@ -143,11 +144,16 @@ class _PlayScreenState extends State<PlayScreen> {
                     ),
                     onTap: () async {
                       print("red4 Tap");
-                      double i = 0;
-                      while (i < dice.getDiceNum()) {
-                        await Future.delayed(Duration(milliseconds: 500));
-                        updateRed4Posi();
-                        i++;
+                      print("whosTurn : $whosTurn");
+                      if (whosTurn == "red") {
+                        double i = 0;
+                        while (i < dice.getDiceNum()) {
+                          await Future.delayed(Duration(milliseconds: 500));
+                          updateRed4Posi();
+                          i++;
+                        }
+                        whosTurn = "green";
+                        print("whosTurn chenged to : $whosTurn");
                       }
                     },
                   ),
@@ -228,11 +234,16 @@ class _PlayScreenState extends State<PlayScreen> {
                     ),
                     onTap: () async {
                       print("green4 Tap");
-                      double i = 0;
-                      while (i < dice.getDiceNum()) {
-                        await Future.delayed(Duration(milliseconds: 500));
-                        updateGreen4Posi();
-                        i++;
+                      print("whosTurn : $whosTurn");
+                      if (whosTurn == "green") {
+                        double i = 0;
+                        while (i < dice.getDiceNum()) {
+                          await Future.delayed(Duration(milliseconds: 500));
+                          updateGreen4Posi();
+                          i++;
+                        }
+                        whosTurn = "red";
+                        print("whosTurn chenged to : $whosTurn");
                       }
                     },
                   ),
