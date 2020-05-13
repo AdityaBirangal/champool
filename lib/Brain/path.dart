@@ -16,6 +16,9 @@ class Fixedpath {
     if (gotiColor == "red") {
       bottomAdjestment = 12;
     }
+    if (gotiColor == "green") {
+      bottomAdjestment = -12;
+    }
 
     print("Inside Fixedpath/getBottomPosi");
     int tempInt = (posiNumber / 10).floor() -
@@ -31,6 +34,9 @@ class Fixedpath {
     if (gotiColor == "red") {
       leftAdjestment = -12;
     }
+    if (gotiColor == "green") {
+      leftAdjestment = -36;
+    }
 
     print("Inside Fixedpath/LeftPosi");
     int tempInt = (posiNumber % 10).floor() - 1;
@@ -40,7 +46,7 @@ class Fixedpath {
   }
 }
 
-class Redpath {
+class RedPath {
   double red1PosiNumber = 1;
   double red2PosiNumber = 1;
   double red3PosiNumber = 1;
@@ -120,7 +126,7 @@ Fixed Positions
   }
 }
 
-class Greenpath {
+class GreenPath {
   double green1PosiNumber = 1;
   double green2PosiNumber = 1;
   double green3PosiNumber = 1;
@@ -163,8 +169,8 @@ Fixed Positions
     25: 33
   };
 
-  double getGreen1Posi({double Increment}) {
-    green1PosiNumber += Increment;
+  double getGreen1Posi({double increment}) {
+    green1PosiNumber += increment;
     print("Inside Greenpath/getGreen1Posi");
     print("Greenpath/greenPathMap ${greenPathMap[green1PosiNumber]}");
     print("Greenpath/green1PosiNumber $green1PosiNumber");
@@ -172,8 +178,8 @@ Fixed Positions
     return greenPathMap[green1PosiNumber];
   }
 
-  double getGreen2Posi({double Increment}) {
-    green2PosiNumber += Increment;
+  double getGreen2Posi({double increment}) {
+    green2PosiNumber += increment;
     print("Inside Redpath/getGreen2Posi");
     print("Greenpath/greenPathMap ${greenPathMap[green2PosiNumber]}");
     print("Greenpath/green2PosiNumber $green2PosiNumber");
@@ -181,8 +187,8 @@ Fixed Positions
     return greenPathMap[green2PosiNumber];
   }
 
-  double getGreen3Posi({double Increment}) {
-    green3PosiNumber += Increment;
+  double getGreen3Posi({double increment}) {
+    green3PosiNumber += increment;
     print("Inside Redpath/getGreen3Posi");
     print("Greenpath/greenPathMap ${greenPathMap[green3PosiNumber]}");
     print("Greenpath/green3PosiNumber $green3PosiNumber");
@@ -190,8 +196,8 @@ Fixed Positions
     return greenPathMap[green3PosiNumber];
   }
 
-  double getGreen4Posi({double Increment}) {
-    green4PosiNumber += Increment;
+  double getGreen4Posi({double increment}) {
+    green4PosiNumber += increment;
     print("Inside Redpath/getGreen4Posi");
     print("Greenpath/greenPathMap ${greenPathMap[green4PosiNumber]}");
     print("Greenpath/green4PosiNumber $green4PosiNumber");

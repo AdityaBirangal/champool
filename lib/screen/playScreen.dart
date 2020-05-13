@@ -9,7 +9,9 @@ class PlayScreen extends StatefulWidget {
 
 class _PlayScreenState extends State<PlayScreen> {
   Fixedpath fixedpath = Fixedpath();
-  Redpath redpath = Redpath();
+  RedPath redPath = RedPath();
+  GreenPath greenPath = GreenPath();
+
   Dice dice = Dice();
   double red1PosiBottom = 0;
   double red1PosiLeft = 0;
@@ -27,7 +29,7 @@ class _PlayScreenState extends State<PlayScreen> {
   double green1PosiLeft = 0;
 
   double green2PosiBottom = 0;
-  double greenPosiLeft = 0;
+  double green2PosiLeft = 0;
 
   double green3PosiBottom = 0;
   double green3PosiLeft = 0;
@@ -44,6 +46,10 @@ class _PlayScreenState extends State<PlayScreen> {
     updateRed2Posi();
     updateRed3Posi();
     updateRed4Posi();
+    updateGreen1Posi();
+    updateGreen2Posi();
+    updateGreen3Posi();
+    updateGreen4Posi();
   }
 
   Widget build(BuildContext context) {
@@ -61,6 +67,7 @@ class _PlayScreenState extends State<PlayScreen> {
                   height: 360,
                   width: 360,
                 ),
+                //Red
                 Positioned(
                   bottom: red1PosiBottom,
                   left: red1PosiLeft,
@@ -145,6 +152,91 @@ class _PlayScreenState extends State<PlayScreen> {
                     },
                   ),
                 ),
+                //Green
+                Positioned(
+                  bottom: green1PosiBottom,
+                  left: green1PosiLeft,
+                  child: GestureDetector(
+                    child: Container(
+                      child: Text("1"),
+                      height: 24,
+                      width: 24,
+                      color: Colors.green,
+                    ),
+                    onTap: () async {
+                      print("green1 Tap");
+                      double i = 0;
+                      while (i < dice.getDiceNum()) {
+                        await Future.delayed(Duration(milliseconds: 500));
+                        updateGreen1Posi();
+                        i++;
+                      }
+                    },
+                  ),
+                ),
+                Positioned(
+                  bottom: green2PosiBottom,
+                  left: green2PosiLeft,
+                  child: GestureDetector(
+                    child: Container(
+                      child: Text("2"),
+                      height: 24,
+                      width: 24,
+                      color: Colors.green,
+                    ),
+                    onTap: () async {
+                      print("green2 Tap");
+                      double i = 0;
+                      while (i < dice.getDiceNum()) {
+                        await Future.delayed(Duration(milliseconds: 500));
+                        updateGreen2Posi();
+                        i++;
+                      }
+                    },
+                  ),
+                ),
+                Positioned(
+                  bottom: green3PosiBottom,
+                  left: green3PosiLeft,
+                  child: GestureDetector(
+                    child: Container(
+                      child: Text("3"),
+                      height: 24,
+                      width: 24,
+                      color: Colors.green,
+                    ),
+                    onTap: () async {
+                      print("green3 Tap");
+                      double i = 0;
+                      while (i < dice.getDiceNum()) {
+                        await Future.delayed(Duration(milliseconds: 500));
+                        updateGreen3Posi();
+                        i++;
+                      }
+                    },
+                  ),
+                ),
+                Positioned(
+                  bottom: green4PosiBottom,
+                  left: green4PosiLeft,
+                  child: GestureDetector(
+                    child: Container(
+                      child: Text("4"),
+                      height: 24,
+                      width: 24,
+                      color: Colors.green,
+                    ),
+                    onTap: () async {
+                      print("green4 Tap");
+                      double i = 0;
+                      while (i < dice.getDiceNum()) {
+                        await Future.delayed(Duration(milliseconds: 500));
+                        updateGreen4Posi();
+                        i++;
+                      }
+                    },
+                  ),
+                ),
               ],
             ),
             Container(height: 100, width: 100, child: Dice()),
@@ -187,48 +279,48 @@ class _PlayScreenState extends State<PlayScreen> {
   }
 
   void updateRed1Posi() {
-    print("Current red1PosiNumber : ${redpath.red1PosiNumber}");
+    print("Current red1PosiNumber : ${redPath.red1PosiNumber}");
     red1PosiBottom = fixedpath.getBottomPosi(
-        posiNumber: redpath.getRed1Posi(red1PosiIncrement: increment),
+        posiNumber: redPath.getRed1Posi(red1PosiIncrement: increment),
         gotiColor: "red");
     red1PosiLeft = fixedpath.getLeftPosi(
-        posiNumber: redpath.getRed1Posi(red1PosiIncrement: 0),
+        posiNumber: redPath.getRed1Posi(red1PosiIncrement: 0),
         gotiColor: "red");
     //Dont incriment second time, we already incremented in posiBottom
     setState(() {});
   }
 
   void updateRed2Posi() {
-    print("Current red2PosiNumber : ${redpath.red2PosiNumber}");
+    print("Current red2PosiNumber : ${redPath.red2PosiNumber}");
     red2PosiBottom = fixedpath.getBottomPosi(
-        posiNumber: redpath.getRed2Posi(red2PosiIncrement: increment),
+        posiNumber: redPath.getRed2Posi(red2PosiIncrement: increment),
         gotiColor: "red");
     red2PosiLeft = fixedpath.getLeftPosi(
-        posiNumber: redpath.getRed2Posi(red2PosiIncrement: 0),
+        posiNumber: redPath.getRed2Posi(red2PosiIncrement: 0),
         gotiColor: "red");
     //Dont incriment second time, we already incremented in posiBottom
     setState(() {});
   }
 
   void updateRed3Posi() {
-    print("Current red3PosiNumber : ${redpath.red3PosiNumber}");
+    print("Current red3PosiNumber : ${redPath.red3PosiNumber}");
     red3PosiBottom = fixedpath.getBottomPosi(
-        posiNumber: redpath.getRed3Posi(red3PosiIncrement: increment),
+        posiNumber: redPath.getRed3Posi(red3PosiIncrement: increment),
         gotiColor: "red");
     red3PosiLeft = fixedpath.getLeftPosi(
-        posiNumber: redpath.getRed3Posi(red3PosiIncrement: 0),
+        posiNumber: redPath.getRed3Posi(red3PosiIncrement: 0),
         gotiColor: "red");
     //Dont incriment second time, we already incremented in posiBottom
     setState(() {});
   }
 
   void updateRed4Posi() {
-    print("Current red4PosiNumber : ${redpath.red4PosiNumber}");
+    print("Current red4PosiNumber : ${redPath.red4PosiNumber}");
     red4PosiBottom = fixedpath.getBottomPosi(
-        posiNumber: redpath.getRed4Posi(red4PosiIncrement: increment),
+        posiNumber: redPath.getRed4Posi(red4PosiIncrement: increment),
         gotiColor: "red");
     red4PosiLeft = fixedpath.getLeftPosi(
-        posiNumber: redpath.getRed4Posi(red4PosiIncrement: 0),
+        posiNumber: redPath.getRed4Posi(red4PosiIncrement: 0),
         gotiColor: "red");
     //Dont incriment second time, we already incremented in posiBottom
     setState(() {});
@@ -236,50 +328,42 @@ class _PlayScreenState extends State<PlayScreen> {
 
 //Green
   void updateGreen1Posi() {
-    print("Current green1PosiNumber : ${redpath.red1PosiNumber}");
-    red1PosiBottom = fixedpath.getBottomPosi(
-        posiNumber: redpath.getRed1Posi(red1PosiIncrement: increment),
-        gotiColor: "red");
-    red1PosiLeft = fixedpath.getLeftPosi(
-        posiNumber: redpath.getRed1Posi(red1PosiIncrement: 0),
-        gotiColor: "red");
-    //Dont incriment second time, we already incremented in posiBottom
+    print("Current green1PosiNumber : ${greenPath.green1PosiNumber}");
+    green1PosiBottom = fixedpath.getBottomPosi(
+        posiNumber: greenPath.getGreen1Posi(increment: increment),
+        gotiColor: "green");
+    green1PosiLeft = fixedpath.getLeftPosi(
+        posiNumber: greenPath.getGreen1Posi(increment: 0), gotiColor: "green");
     setState(() {});
   }
 
   void updateGreen2Posi() {
-    print("Current green2PosiNumber : ${redpath.red2PosiNumber}");
-    red2PosiBottom = fixedpath.getBottomPosi(
-        posiNumber: redpath.getRed2Posi(red2PosiIncrement: increment),
-        gotiColor: "red");
-    red2PosiLeft = fixedpath.getLeftPosi(
-        posiNumber: redpath.getRed2Posi(red2PosiIncrement: 0),
-        gotiColor: "red");
-    //Dont incriment second time, we already incremented in posiBottom
+    print("Current green2PosiNumber : ${greenPath.green2PosiNumber}");
+    green2PosiBottom = fixedpath.getBottomPosi(
+        posiNumber: greenPath.getGreen2Posi(increment: increment),
+        gotiColor: "green");
+    green2PosiLeft = fixedpath.getLeftPosi(
+        posiNumber: greenPath.getGreen2Posi(increment: 0), gotiColor: "green");
     setState(() {});
   }
 
   void updateGreen3Posi() {
-    print("Current green3PosiNumber : ${redpath.red3PosiNumber}");
-    red3PosiBottom = fixedpath.getBottomPosi(
-        posiNumber: redpath.getRed3Posi(red3PosiIncrement: increment),
-        gotiColor: "red");
-    red3PosiLeft = fixedpath.getLeftPosi(
-        posiNumber: redpath.getRed3Posi(red3PosiIncrement: 0),
-        gotiColor: "red");
-    //Dont incriment second time, we already incremented in posiBottom
+    print("Current green3PosiNumber : ${greenPath.green3PosiNumber}");
+    green3PosiBottom = fixedpath.getBottomPosi(
+        posiNumber: greenPath.getGreen3Posi(increment: increment),
+        gotiColor: "green");
+    green3PosiLeft = fixedpath.getLeftPosi(
+        posiNumber: greenPath.getGreen3Posi(increment: 0), gotiColor: "green");
     setState(() {});
   }
 
   void updateGreen4Posi() {
-    print("Current green4PosiNumber : ${redpath.red4PosiNumber}");
-    red4PosiBottom = fixedpath.getBottomPosi(
-        posiNumber: redpath.getRed4Posi(red4PosiIncrement: increment),
-        gotiColor: "red");
-    red4PosiLeft = fixedpath.getLeftPosi(
-        posiNumber: redpath.getRed4Posi(red4PosiIncrement: 0),
-        gotiColor: "red");
-    //Dont incriment second time, we already incremented in posiBottom
+    print("Current green4PosiNumber : ${greenPath.green4PosiNumber}");
+    green4PosiBottom = fixedpath.getBottomPosi(
+        posiNumber: greenPath.getGreen4Posi(increment: increment),
+        gotiColor: "green");
+    green4PosiLeft = fixedpath.getLeftPosi(
+        posiNumber: greenPath.getGreen4Posi(increment: 0), gotiColor: "green");
     setState(() {});
   }
 }
