@@ -16,6 +16,9 @@ class Fixedpath {
     if (gotiColor == "red") {
       bottomAdjestment = 12;
     }
+    if (gotiColor == "green") {
+      bottomAdjestment = -12;
+    }
 
     print("Inside Fixedpath/getBottomPosi");
     int tempInt = (posiNumber / 10).floor() -
@@ -31,6 +34,9 @@ class Fixedpath {
     if (gotiColor == "red") {
       leftAdjestment = -12;
     }
+    if (gotiColor == "green") {
+      leftAdjestment = -36;
+    }
 
     print("Inside Fixedpath/LeftPosi");
     int tempInt = (posiNumber % 10).floor() - 1;
@@ -40,7 +46,7 @@ class Fixedpath {
   }
 }
 
-class Redpath {
+class RedPath {
   double red1PosiNumber = 1;
   double red2PosiNumber = 1;
   double red3PosiNumber = 1;
@@ -85,9 +91,8 @@ Fixed Positions
 
   double getRed1Posi({double red1PosiIncrement}) {
     red1PosiNumber += red1PosiIncrement;
-    print("Redpath/redPathMap ${redPathMap[red1PosiNumber]}");
-
     print("Inside Redpath/getRed1Posi");
+    print("Redpath/redPathMap ${redPathMap[red1PosiNumber]}");
     print("Redpath/red1PosiNumber $red1PosiNumber");
 
     return redPathMap[red1PosiNumber];
@@ -95,9 +100,8 @@ Fixed Positions
 
   double getRed2Posi({double red2PosiIncrement}) {
     red2PosiNumber += red2PosiIncrement;
-    print("Redpath/redPathMap ${redPathMap[red2PosiNumber]}");
-
     print("Inside Redpath/getRed2Posi");
+    print("Redpath/redPathMap ${redPathMap[red2PosiNumber]}");
     print("Redpath/red2PosiNumber $red2PosiNumber");
 
     return redPathMap[red2PosiNumber];
@@ -105,9 +109,8 @@ Fixed Positions
 
   double getRed3Posi({double red3PosiIncrement}) {
     red3PosiNumber += red3PosiIncrement;
-    print("Redpath/redPathMap ${redPathMap[red3PosiNumber]}");
-
     print("Inside Redpath/getRed3Posi");
+    print("Redpath/redPathMap ${redPathMap[red3PosiNumber]}");
     print("Redpath/red3PosiNumber $red3PosiNumber");
 
     return redPathMap[red3PosiNumber];
@@ -115,11 +118,90 @@ Fixed Positions
 
   double getRed4Posi({double red4PosiIncrement}) {
     red4PosiNumber += red4PosiIncrement;
-    print("Redpath/redPathMap ${redPathMap[red4PosiNumber]}");
-
     print("Inside Redpath/getRed4Posi");
+    print("Redpath/redPathMap ${redPathMap[red4PosiNumber]}");
     print("Redpath/red4PosiNumber $red4PosiNumber");
 
     return redPathMap[red4PosiNumber];
+  }
+}
+
+class GreenPath {
+  double green1PosiNumber = 1;
+  double green2PosiNumber = 1;
+  double green3PosiNumber = 1;
+  double green4PosiNumber = 1;
+
+  /*
+Fixed Positions
+51 52 53 54 55
+41 42 43 44 45
+31 32 33 34 35
+21 22 23 24 25
+11 12 13 14 15
+*/
+
+  Map<double, double> greenPathMap = {
+    1: 35,
+    2: 45,
+    3: 55,
+    4: 54,
+    5: 53,
+    6: 52,
+    7: 51,
+    8: 41,
+    9: 31,
+    10: 21,
+    11: 11,
+    12: 12,
+    13: 13,
+    14: 14,
+    15: 15,
+    16: 25,
+    17: 24,
+    18: 23,
+    19: 22,
+    20: 32,
+    21: 42,
+    22: 43,
+    23: 44,
+    24: 34,
+    25: 33
+  };
+
+  double getGreen1Posi({double increment}) {
+    green1PosiNumber += increment;
+    print("Inside Greenpath/getGreen1Posi");
+    print("Greenpath/greenPathMap ${greenPathMap[green1PosiNumber]}");
+    print("Greenpath/green1PosiNumber $green1PosiNumber");
+
+    return greenPathMap[green1PosiNumber];
+  }
+
+  double getGreen2Posi({double increment}) {
+    green2PosiNumber += increment;
+    print("Inside Redpath/getGreen2Posi");
+    print("Greenpath/greenPathMap ${greenPathMap[green2PosiNumber]}");
+    print("Greenpath/green2PosiNumber $green2PosiNumber");
+
+    return greenPathMap[green2PosiNumber];
+  }
+
+  double getGreen3Posi({double increment}) {
+    green3PosiNumber += increment;
+    print("Inside Redpath/getGreen3Posi");
+    print("Greenpath/greenPathMap ${greenPathMap[green3PosiNumber]}");
+    print("Greenpath/green3PosiNumber $green3PosiNumber");
+
+    return greenPathMap[green3PosiNumber];
+  }
+
+  double getGreen4Posi({double increment}) {
+    green4PosiNumber += increment;
+    print("Inside Redpath/getGreen4Posi");
+    print("Greenpath/greenPathMap ${greenPathMap[green4PosiNumber]}");
+    print("Greenpath/green4PosiNumber $green4PosiNumber");
+
+    return greenPathMap[green4PosiNumber];
   }
 }
