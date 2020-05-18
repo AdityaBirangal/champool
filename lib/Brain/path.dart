@@ -47,10 +47,12 @@ class Fixedpath {
 }
 
 class RedPath {
-  double red1PosiNumber = 1;
-  double red2PosiNumber = 1;
-  double red3PosiNumber = 1;
-  double red4PosiNumber = 1;
+  Map<int, int> redPosiNumber = {
+    1: 1,
+    2: 1,
+    3: 1,
+    4: 1,
+  };
 
   /*
 Fixed Positions
@@ -89,49 +91,49 @@ Fixed Positions
     25: 33
   };
 
-  double getRed1Posi({int red1PosiIncrement}) {
-    red1PosiNumber += red1PosiIncrement;
+  double getRed1Posi({int increment}) {
+    redPosiNumber[1] += increment;
     print("Inside Redpath/getRed1Posi");
-    print("Redpath/redPathMap ${redPathMap[red1PosiNumber]}");
-    print("Redpath/red1PosiNumber $red1PosiNumber");
+    print("Redpath/redPathMap ${redPathMap[redPosiNumber[1]]}");
+    print("Redpath/redPosiNumber[1] ${redPosiNumber[1]}");
 
-    return redPathMap[red1PosiNumber];
+    return redPathMap[redPosiNumber[1]];
   }
 
-  double getRed2Posi({int red2PosiIncrement}) {
-    red2PosiNumber += red2PosiIncrement;
+  double getRed2Posi({int increment}) {
+    redPosiNumber[2] += increment;
     print("Inside Redpath/getRed2Posi");
-    print("Redpath/redPathMap ${redPathMap[red2PosiNumber]}");
-    print("Redpath/red2PosiNumber $red2PosiNumber");
+    print("Redpath/redPathMap ${redPathMap[redPosiNumber[2]]}");
+    print("Redpath/redPosiNumber[2] ${redPosiNumber[2]}");
 
-    return redPathMap[red2PosiNumber];
+    return redPathMap[redPosiNumber[2]];
   }
 
-  double getRed3Posi({int red3PosiIncrement}) {
-    red3PosiNumber += red3PosiIncrement;
+  double getRed3Posi({int increment}) {
+    redPosiNumber[3] += increment;
     print("Inside Redpath/getRed3Posi");
-    print("Redpath/redPathMap ${redPathMap[red3PosiNumber]}");
-    print("Redpath/red3PosiNumber $red3PosiNumber");
+    print("Redpath/redPathMap ${redPathMap[redPosiNumber[3]]}");
+    print("Redpath/redPosiNumber[3] ${redPosiNumber[3]}");
 
-    return redPathMap[red3PosiNumber];
+    return redPathMap[redPosiNumber[3]];
   }
 
-  double getRed4Posi({int red4PosiIncrement}) {
-    red4PosiNumber += red4PosiIncrement;
+  double getRed4Posi({int increment}) {
+    redPosiNumber[4] += increment;
     print("Inside Redpath/getRed4Posi");
-    print("Redpath/redPathMap ${redPathMap[red4PosiNumber]}");
-    print("Redpath/red4PosiNumber $red4PosiNumber");
+    print("Redpath/redPathMap ${redPathMap[redPosiNumber[4]]}");
+    print("Redpath/redPosiNumber[4] ${redPosiNumber[4]}");
 
-    return redPathMap[red4PosiNumber];
+    return redPathMap[redPosiNumber[4]];
   }
 }
 
 class GreenPath {
   Map<int, int> greenPosiNumber = {
-    1: 1,
-    2: 1,
-    3: 1,
-    4: 1,
+    5: 1,
+    6: 1,
+    7: 1,
+    8: 1,
   };
 
   /*
@@ -143,7 +145,7 @@ Fixed Positions
 11 12 13 14 15
 */
 
-  Map<double, double> greenPathMap = {
+  Map<int, double> greenPathMap = {
     1: 35,
     2: 45,
     3: 55,
@@ -172,37 +174,37 @@ Fixed Positions
   };
 
   double getGreen1Posi({int increment}) {
-    greenPosiNumber[1] += increment;
+    greenPosiNumber[5] += increment;
     print("Inside Greenpath/getGreen1Posi");
-    print("Greenpath/greenPathMap ${greenPathMap[greenPosiNumber[1]]}");
-    print("Greenpath/greenPosiNumber[1] $greenPosiNumber[1]");
-    return greenPathMap[greenPosiNumber[1]];
+    print("Greenpath/greenPathMap : ${greenPathMap[greenPosiNumber[5]]}");
+    print("Greenpath/greenPosiNumber[5] : ${greenPosiNumber[5]}");
+    return greenPathMap[greenPosiNumber[5]];
   }
 
   double getGreen2Posi({int increment}) {
-    greenPosiNumber[2] += increment;
+    greenPosiNumber[6] += increment;
     print("Inside Redpath/getGreen2Posi");
-    print("Greenpath/greenPathMap ${greenPathMap[greenPosiNumber[2]]}");
-    print("Greenpath/greenPosiNumber[2] $greenPosiNumber[2]");
+    print("Greenpath/greenPathMap : ${greenPathMap[greenPosiNumber[6]]}");
+    print("Greenpath/greenPosiNumber[6] : ${greenPosiNumber[6]}");
 
-    return greenPathMap[greenPosiNumber[2]];
+    return greenPathMap[greenPosiNumber[6]];
   }
 
   double getGreen3Posi({int increment}) {
-    greenPosiNumber[3] += increment;
+    greenPosiNumber[7] += increment;
     print("Inside Redpath/getGreen3Posi");
-    print("Greenpath/greenPathMap ${greenPathMap[greenPosiNumber[3]]}");
-    print("Greenpath/greenPosiNumber[3] $greenPosiNumber[3]");
+    print("Greenpath/greenPathMap : ${greenPathMap[greenPosiNumber[7]]}");
+    print("Greenpath/greenPosiNumber[7] : ${greenPosiNumber[7]}");
 
-    return greenPathMap[greenPosiNumber[3]];
+    return greenPathMap[greenPosiNumber[7]];
   }
 
   double getGreen4Posi({int increment}) {
-    greenPosiNumber[4] += increment;
+    greenPosiNumber[8] += increment;
     print("Inside Redpath/getGreen4Posi");
-    print("Greenpath/greenPathMap ${greenPathMap[greenPosiNumber[4]]}");
-    print("Greenpath/greenPosiNumber[4] $greenPosiNumber[4]");
+    print("Greenpath/greenPathMap : ${greenPathMap[greenPosiNumber[8]]}");
+    print("Greenpath/greenPosiNumber[8] : ${greenPosiNumber[8]}");
 
-    return greenPathMap[greenPosiNumber[4]];
+    return greenPathMap[greenPosiNumber[8]];
   }
 }
