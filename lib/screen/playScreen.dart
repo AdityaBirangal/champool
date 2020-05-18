@@ -13,10 +13,43 @@ class _PlayScreenState extends State<PlayScreen> {
   GreenPath greenPath = GreenPath();
   Dice dice = Dice();
 
-  double increment = 0;
+  int increment = 0;
   String whosTurn = "red";
 
-  double red1PosiBottom = 0;
+  //red,green,yellow,blue
+  Map<double, double> fixedPosiNumber = {
+    1: 13,
+    2: 13,
+    3: 13,
+    4: 13,
+    5: 35,
+    6: 35,
+    7: 35,
+    8: 35,
+  };
+
+  Map<double, double> posiBottom = {
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0,
+    6: 0,
+    7: 0,
+    8: 0,
+  };
+
+  Map<double, double> posiLeft = {
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0,
+    6: 0,
+    7: 0,
+    8: 0,
+  };
+
   double red1PosiLeft = 0;
 
   double red2PosiBottom = 0;
@@ -24,10 +57,6 @@ class _PlayScreenState extends State<PlayScreen> {
 
   double red3PosiBottom = 0;
   double red3PosiLeft = 0;
-
-  double red4FixedPosiNumber = 13;
-  double red4PosiBottom = 0;
-  double red4PosiLeft = 0;
 
   double green1PosiBottom = 0;
   double green1PosiLeft = 0;
@@ -71,7 +100,7 @@ class _PlayScreenState extends State<PlayScreen> {
                 ),
                 //Red
                 Positioned(
-                  bottom: red1PosiBottom,
+                  bottom: posiBottom[1],
                   left: red1PosiLeft,
                   child: GestureDetector(
                     child: Container(
@@ -149,8 +178,8 @@ class _PlayScreenState extends State<PlayScreen> {
                   ),
                 ),
                 Positioned(
-                  bottom: red4PosiBottom,
-                  left: red4PosiLeft,
+                  bottom: posiBottom[4],
+                  left: posiLeft[4],
                   child: GestureDetector(
                     child: Container(
                       child: Text("4"),
@@ -283,11 +312,12 @@ class _PlayScreenState extends State<PlayScreen> {
                 ),
               ],
             ),
+            Text("${fixedPosiNumber[1]}"),
             Container(height: 100, width: 100, child: Dice()),
             TextField(
               decoration: InputDecoration(hintText: "Enter Increment"),
               onChanged: (value) {
-                increment = double.parse(value);
+                increment = int.parse(value);
               },
             ),
             Row(
@@ -324,7 +354,7 @@ class _PlayScreenState extends State<PlayScreen> {
 
   void updateRed1Posi() {
     print("Current red1PosiNumber : ${redPath.red1PosiNumber}");
-    red1PosiBottom = fixedpath.getBottomPosi(
+    posiBottom[1] = fixedpath.getBottomPosi(
         posiNumber: redPath.getRed1Posi(red1PosiIncrement: increment),
         gotiColor: "red");
     red1PosiLeft = fixedpath.getLeftPosi(
@@ -361,17 +391,17 @@ class _PlayScreenState extends State<PlayScreen> {
   void updateRed4Posi() {
     print("Current red4PosiNumber : ${redPath.red4PosiNumber}");
     print(
-        "Current red4FixedPosiNumber : ${redPath.redPathMap[redPath.red4PosiNumber]}");
+        "Current fixedPosiNumber[4] : ${redPath.redPathMap[redPath.red4PosiNumber]}");
 
-    red4PosiBottom = fixedpath.getBottomPosi(
+    posiBottom[4] = fixedpath.getBottomPosi(
         posiNumber: redPath.getRed4Posi(red4PosiIncrement: increment),
         gotiColor: "red");
-    red4PosiLeft = fixedpath.getLeftPosi(
+    posiLeft[4] = fixedpath.getLeftPosi(
         posiNumber: redPath.getRed4Posi(red4PosiIncrement: 0),
         gotiColor: "red");
     //Dont incriment second time, we already incremented in posiBottom
     setState(() {});
-    red4FixedPosiNumber = redPath.redPathMap[redPath.red4PosiNumber];
+    fixedPosiNumber[4] = redPath.redPathMap[redPath.red4PosiNumber];
     print("Updated red4PosiNumber : ${redPath.red4PosiNumber}");
     print(
         "Updated red4PosiNumber : ${redPath.redPathMap[redPath.red4PosiNumber]}");
@@ -379,7 +409,7 @@ class _PlayScreenState extends State<PlayScreen> {
 
 //Green
   void updateGreen1Posi() {
-    print("Current green1PosiNumber : ${greenPath.green1PosiNumber}");
+    print("Current greenPosiNumber[1] : ${greenPath.greenPosiNumber[1]}");
     green1PosiBottom = fixedpath.getBottomPosi(
         posiNumber: greenPath.getGreen1Posi(increment: increment),
         gotiColor: "green");
@@ -389,7 +419,7 @@ class _PlayScreenState extends State<PlayScreen> {
   }
 
   void updateGreen2Posi() {
-    print("Current green2PosiNumber : ${greenPath.green2PosiNumber}");
+    print("Current greenPosiNumber[2] : ${greenPath.greenPosiNumber[2]}");
     green2PosiBottom = fixedpath.getBottomPosi(
         posiNumber: greenPath.getGreen2Posi(increment: increment),
         gotiColor: "green");
@@ -399,7 +429,7 @@ class _PlayScreenState extends State<PlayScreen> {
   }
 
   void updateGreen3Posi() {
-    print("Current green3PosiNumber : ${greenPath.green3PosiNumber}");
+    print("Current greenPosiNumber[3] : ${greenPath.greenPosiNumber[3]}");
     green3PosiBottom = fixedpath.getBottomPosi(
         posiNumber: greenPath.getGreen3Posi(increment: increment),
         gotiColor: "green");
@@ -409,28 +439,29 @@ class _PlayScreenState extends State<PlayScreen> {
   }
 
   void updateGreen4Posi() {
-    print("Current green4PosiNumber : ${greenPath.green4PosiNumber}");
+    print("Current greenPosiNumber[4] : ${greenPath.greenPosiNumber[4]}");
     print(
-        "Current green4FixedPosiNumber : ${greenPath.greenPathMap[greenPath.green4PosiNumber]}");
+        "Current green4FixedPosiNumber : ${greenPath.greenPathMap[greenPath.greenPosiNumber[4]]}");
     green4PosiBottom = fixedpath.getBottomPosi(
         posiNumber: greenPath.getGreen4Posi(increment: increment),
         gotiColor: "green");
     green4PosiLeft = fixedpath.getLeftPosi(
         posiNumber: greenPath.getGreen4Posi(increment: 0), gotiColor: "green");
     setState(() {});
-    green4FixedPosiNumber = greenPath.greenPathMap[greenPath.green4PosiNumber];
-    print("Updated green4PosiNumber : ${greenPath.green4PosiNumber}");
+    green4FixedPosiNumber =
+        greenPath.greenPathMap[greenPath.greenPosiNumber[4]];
+    print("Updated greenPosiNumber[4] : ${greenPath.greenPosiNumber[4]}");
     print(
-        "Updated green4FixedPosiNumber : ${greenPath.greenPathMap[greenPath.green4PosiNumber]}");
+        "Updated green4FixedPosiNumber : ${greenPath.greenPathMap[greenPath.greenPosiNumber[4]]}");
   }
 
   void checkKill() {
     if (whosTurn == "red") {
-      if (red4FixedPosiNumber == green4FixedPosiNumber) {
+      if (fixedPosiNumber[4] == green4FixedPosiNumber) {
         print("red1 killed green1");
-        greenPath.green4PosiNumber = 1;
+        greenPath.greenPosiNumber[4] = 1;
         green4FixedPosiNumber = 35; //35 is Home fixed Nuber of Green
-        print("Current green4PosiNumber : ${greenPath.green4PosiNumber}");
+        print("Current greenPosiNumber[4] : ${greenPath.greenPosiNumber[4]}");
 
         green4PosiBottom = fixedpath.getBottomPosi(
             posiNumber: green4FixedPosiNumber, gotiColor: "green");
