@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-double myNum = 3;
+int myNum = 3;
 
 class Dice extends StatefulWidget {
-  double getDiceNum() {
+  int getDiceNum() {
     return myNum;
   }
 
@@ -16,22 +16,31 @@ class _DiceState extends State<Dice> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: FlatButton(
-        child: Image.asset("images/diceImages/dice${myNum.floor()}.png"),
-        onPressed: () {
-          changeNum();
-          setState(() {});
-        },
+      child: Column(
+        children: <Widget>[
+          Container(
+            height: 70,
+            child: FlatButton(
+              child: Image.asset("images/diceImages/dice${myNum.floor()}.png"),
+              onPressed: () {
+                changeNum();
+                setState(() {});
+              },
+            ),
+          ),
+          TextField(
+            decoration: InputDecoration(hintText: "Enter Increment"),
+            onChanged: (value) {
+              myNum = int.parse(value);
+            },
+          ),
+        ],
       ),
     );
   }
 
   void changeNum() {
-    myNum = Random().nextInt(6) + 1.0;
+    myNum = Random().nextInt(6) + 1;
     print("Dice MyNum : $myNum");
-  }
-
-  double getDiceNum() {
-    return myNum;
   }
 }

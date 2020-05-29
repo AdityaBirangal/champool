@@ -297,21 +297,15 @@ class _PlayScreenState extends State<PlayScreen> {
                 ),
               ],
             ),
-            Text("${fixedPosiNumber[1]}"),
-            Container(height: 100, width: 100, child: Dice()),
-            TextField(
-              decoration: InputDecoration(hintText: "Enter Increment"),
-              onChanged: (value) {
-                increment = int.parse(value);
-              },
-            ),
+            Text("WhosTurn : $whosTurn"),
+            Dice(),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 FlatButton(
                   color: Colors.redAccent,
                   child: Text(
-                    "New",
+                    "Extra",
                   ),
                   onPressed: () {
                     setState(() {});
