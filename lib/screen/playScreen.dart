@@ -480,7 +480,22 @@ class _PlayScreenState extends State<PlayScreen> {
       int j;
       for (i = 1; i <= 4; i++) {
         for (j = 5; j <= 8; j++) {
-          if (fixedPosiNumber[i] == fixedPosiNumber[j]) {
+          if (fixedPosiNumber[i] == 13) {
+            print(
+                "green$j Not Killed by red$i (Home Place ${fixedPosiNumber[i]})");
+          } else if (fixedPosiNumber[i] == 35) {
+            print(
+                "green$j Not Killed by red$i (Home Place ${fixedPosiNumber[i]})");
+          } else if (fixedPosiNumber[i] == 53) {
+            print(
+                "green$j Not Killed by red$i (Home Place ${fixedPosiNumber[i]})");
+          } else if (fixedPosiNumber[i] == 31) {
+            print(
+                "green$j Not Killed by red$i (Home Place ${fixedPosiNumber[i]})");
+          } else if (fixedPosiNumber[i] == 33) {
+            print(
+                "green$j Not Killed by red$i (Home Place ${fixedPosiNumber[i]})");
+          } else if (fixedPosiNumber[i] == fixedPosiNumber[j]) {
             print("red$i killed green$j");
             greenPath.greenPosiNumber[j] = 1;
             fixedPosiNumber[j] = 35; //35 is Home fixed Nuber of Green
@@ -502,7 +517,22 @@ class _PlayScreenState extends State<PlayScreen> {
       int j;
       for (i = 5; i <= 8; i++) {
         for (j = 1; j <= 4; j++) {
-          if (fixedPosiNumber[i] == fixedPosiNumber[j]) {
+          if (fixedPosiNumber[i] == 13) {
+            print(
+                "red$j Not Killed by green$i (Home Place ${fixedPosiNumber[i]})");
+          } else if (fixedPosiNumber[i] == 35) {
+            print(
+                "red$j Not Killed by green$i (Home Place ${fixedPosiNumber[i]})");
+          } else if (fixedPosiNumber[i] == 53) {
+            print(
+                "red$j Not Killed by green$i (Home Place ${fixedPosiNumber[i]})");
+          } else if (fixedPosiNumber[i] == 31) {
+            print(
+                "red$j Not Killed by green$i (Home Place ${fixedPosiNumber[i]})");
+          } else if (fixedPosiNumber[i] == 33) {
+            print(
+                "red$j Not Killed by green$i (Home Place ${fixedPosiNumber[i]})");
+          } else if (fixedPosiNumber[i] == fixedPosiNumber[j]) {
             print("green$i killed red$j");
             redPath.redPosiNumber[j] = 1;
             fixedPosiNumber[j] = 13; //13 is Home fixed Nuber of Red
