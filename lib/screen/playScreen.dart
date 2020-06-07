@@ -100,6 +100,7 @@ class _PlayScreenState extends State<PlayScreen> {
                         }
                         checkKill();
                         whosTurn = "green";
+                        updateDiceColor();
                         print("whosTurn chenged to : $whosTurn");
                       }
                     },
@@ -127,6 +128,8 @@ class _PlayScreenState extends State<PlayScreen> {
                         }
                         checkKill();
                         whosTurn = "green";
+                        updateDiceColor();
+
                         print("whosTurn chenged to : $whosTurn");
                       }
                     },
@@ -154,6 +157,7 @@ class _PlayScreenState extends State<PlayScreen> {
                         }
                         checkKill();
                         whosTurn = "green";
+                        updateDiceColor();
                         print("whosTurn chenged to : $whosTurn");
                       }
                     },
@@ -181,6 +185,7 @@ class _PlayScreenState extends State<PlayScreen> {
                         }
                         checkKill();
                         whosTurn = "green";
+                        updateDiceColor();
                         print("whosTurn chenged to : $whosTurn");
                       }
                     },
@@ -209,6 +214,7 @@ class _PlayScreenState extends State<PlayScreen> {
                         }
                         checkKill();
                         whosTurn = "red";
+                        updateDiceColor();
                         print("whosTurn chenged to : $whosTurn");
                       }
                     },
@@ -236,6 +242,7 @@ class _PlayScreenState extends State<PlayScreen> {
                         }
                         checkKill();
                         whosTurn = "red";
+                        updateDiceColor();
                         print("whosTurn chenged to : $whosTurn");
                       }
                     },
@@ -263,6 +270,7 @@ class _PlayScreenState extends State<PlayScreen> {
                         }
                         checkKill();
                         whosTurn = "red";
+                        updateDiceColor();
                         print("whosTurn chenged to : $whosTurn");
                       }
                     },
@@ -290,6 +298,7 @@ class _PlayScreenState extends State<PlayScreen> {
                         }
                         checkKill();
                         whosTurn = "red";
+                        updateDiceColor();
                         print("whosTurn chenged to : $whosTurn");
                       }
                     },
@@ -308,6 +317,7 @@ class _PlayScreenState extends State<PlayScreen> {
                     "Extra",
                   ),
                   onPressed: () {
+                    updateDiceColor();
                     setState(() {});
                   },
                 ),
@@ -546,6 +556,18 @@ class _PlayScreenState extends State<PlayScreen> {
           }
         }
       }
+    }
+  }
+
+  void updateDiceColor() {
+    if (whosTurn == "red") {
+      diceColor = Colors.red;
+    } else if (whosTurn == "green") {
+      diceColor = Colors.green;
+    } else if (whosTurn == "yello") {
+      diceColor = Colors.yellow;
+    } else if (whosTurn == "blue") {
+      diceColor = Colors.blue;
     }
   }
 }

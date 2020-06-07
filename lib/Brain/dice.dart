@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 int myNum = 3;
+Color diceColor;
+String whosTurn;
 
 class Dice extends StatefulWidget {
   int getDiceNum() {
@@ -19,10 +21,11 @@ class _DiceState extends State<Dice> {
       child: Column(
         children: <Widget>[
           Container(
+            color: diceColor,
             height: 70,
-            child: FlatButton(
+            child: GestureDetector(
               child: Image.asset("images/diceImages/dice${myNum.floor()}.png"),
-              onPressed: () {
+              onTap: () {
                 changeNum();
                 setState(() {});
               },
