@@ -148,16 +148,14 @@ Fixed Positions
     25: 33
   };
 
-  double getGreenPosi({
-    @required int greenNum,
+  double getPosi({
+    @required int gotiNum,
     @required int increment,
   }) {
-    greenPosiNumber[greenNum] += increment;
-    print("Inside Greenpath/getGreen${greenNum}Posi");
-    print(
-        "Greenpath/greenPathMap : ${greenPathMap[greenPosiNumber[greenNum]]}");
-    print(
-        "Greenpath/greenPosiNumber[$greenNum] : ${greenPosiNumber[greenNum]}");
-    return greenPathMap[greenPosiNumber[greenNum]];
+    greenPosiNumber[gotiNum] += increment;
+    print("Inside Greenpath/getGreen${gotiNum}Posi");
+    print("Greenpath/greenPathMap : ${greenPathMap[greenPosiNumber[gotiNum]]}");
+    print("Greenpath/greenPosiNumber[$gotiNum] : ${greenPosiNumber[gotiNum]}");
+    return greenPathMap[greenPosiNumber[gotiNum]];
   }
 }

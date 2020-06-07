@@ -57,10 +57,10 @@ class _PlayScreenState extends State<PlayScreen> {
     updatePosi(gotiNum: 3);
     updatePosi(gotiNum: 4);
 
-    updateGreenPosi(greenNum: 5);
-    updateGreenPosi(greenNum: 6);
-    updateGreenPosi(greenNum: 7);
-    updateGreenPosi(greenNum: 8);
+    updateGreenPosi(gotiNum: 5);
+    updateGreenPosi(gotiNum: 6);
+    updateGreenPosi(gotiNum: 7);
+    updateGreenPosi(gotiNum: 8);
   }
 
   Widget build(BuildContext context) {
@@ -210,7 +210,7 @@ class _PlayScreenState extends State<PlayScreen> {
                         double i = 0;
                         while (i < dice.getDiceNum()) {
                           await Future.delayed(Duration(milliseconds: 500));
-                          updateGreenPosi(greenNum: 5);
+                          updateGreenPosi(gotiNum: 5);
                           i++;
                         }
                         checkKill();
@@ -238,7 +238,7 @@ class _PlayScreenState extends State<PlayScreen> {
                         double i = 0;
                         while (i < dice.getDiceNum()) {
                           await Future.delayed(Duration(milliseconds: 500));
-                          updateGreenPosi(greenNum: 6);
+                          updateGreenPosi(gotiNum: 6);
                           i++;
                         }
                         checkKill();
@@ -266,7 +266,7 @@ class _PlayScreenState extends State<PlayScreen> {
                         double i = 0;
                         while (i < dice.getDiceNum()) {
                           await Future.delayed(Duration(milliseconds: 500));
-                          updateGreenPosi(greenNum: 7);
+                          updateGreenPosi(gotiNum: 7);
                           i++;
                         }
                         checkKill();
@@ -294,7 +294,7 @@ class _PlayScreenState extends State<PlayScreen> {
                         double i = 0;
                         while (i < dice.getDiceNum()) {
                           await Future.delayed(Duration(milliseconds: 500));
-                          updateGreenPosi(greenNum: 8);
+                          updateGreenPosi(gotiNum: 8);
                           i++;
                         }
                         checkKill();
@@ -367,27 +367,26 @@ class _PlayScreenState extends State<PlayScreen> {
   }
 
 //Green
-  void updateGreenPosi({int greenNum}) {
+  void updateGreenPosi({int gotiNum}) {
     print(
-        "Current greenPosiNumber[$greenNum] : ${greenPath.greenPosiNumber[greenNum]}");
+        "Current greenPosiNumber[$gotiNum] : ${greenPath.greenPosiNumber[gotiNum]}");
     print(
-        "Current fixedPosiNumber[$greenNum] : ${greenPath.greenPathMap[greenPath.greenPosiNumber[greenNum]]}");
+        "Current fixedPosiNumber[$gotiNum] : ${greenPath.greenPathMap[greenPath.greenPosiNumber[gotiNum]]}");
 
-    posiBottom[greenNum] = fixedpath.getBottomPosi(
-        posiNumber:
-            greenPath.getGreenPosi(greenNum: greenNum, increment: increment),
+    posiBottom[gotiNum] = fixedpath.getBottomPosi(
+        posiNumber: greenPath.getPosi(gotiNum: gotiNum, increment: increment),
         gotiColor: "green");
-    posiLeft[greenNum] = fixedpath.getLeftPosi(
-        posiNumber: greenPath.getGreenPosi(greenNum: greenNum, increment: 0),
+    posiLeft[gotiNum] = fixedpath.getLeftPosi(
+        posiNumber: greenPath.getPosi(gotiNum: gotiNum, increment: 0),
         gotiColor: "green");
     setState(() {});
 
-    fixedPosiNumber[greenNum] =
-        greenPath.greenPathMap[greenPath.greenPosiNumber[greenNum]];
+    fixedPosiNumber[gotiNum] =
+        greenPath.greenPathMap[greenPath.greenPosiNumber[gotiNum]];
     print(
-        "Updated greenPosiNumber[$greenNum] : ${greenPath.greenPosiNumber[greenNum]}");
+        "Updated greenPosiNumber[$gotiNum] : ${greenPath.greenPosiNumber[gotiNum]}");
     print(
-        "Updated fixedPosiNumber[$greenNum] : ${greenPath.greenPathMap[greenPath.greenPosiNumber[greenNum]]}");
+        "Updated fixedPosiNumber[$gotiNum] : ${greenPath.greenPathMap[greenPath.greenPosiNumber[gotiNum]]}");
   }
 
   void checkKill() {
