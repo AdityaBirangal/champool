@@ -56,10 +56,10 @@ class _PlayScreenState extends State<PlayScreen> {
     updateRed2Posi();
     updateRed3Posi();
     updateRed4Posi();
-    updateGreen1Posi();
-    updateGreen2Posi();
-    updateGreen3Posi();
-    updateGreen4Posi();
+    updateGreenPosi(greenNum: 5);
+    updateGreenPosi(greenNum: 6);
+    updateGreenPosi(greenNum: 7);
+    updateGreenPosi(greenNum: 8);
   }
 
   Widget build(BuildContext context) {
@@ -209,7 +209,7 @@ class _PlayScreenState extends State<PlayScreen> {
                         double i = 0;
                         while (i < dice.getDiceNum()) {
                           await Future.delayed(Duration(milliseconds: 500));
-                          updateGreen1Posi();
+                          updateGreenPosi(greenNum: 5);
                           i++;
                         }
                         checkKill();
@@ -237,7 +237,7 @@ class _PlayScreenState extends State<PlayScreen> {
                         double i = 0;
                         while (i < dice.getDiceNum()) {
                           await Future.delayed(Duration(milliseconds: 500));
-                          updateGreen2Posi();
+                          updateGreenPosi(greenNum: 6);
                           i++;
                         }
                         checkKill();
@@ -265,7 +265,7 @@ class _PlayScreenState extends State<PlayScreen> {
                         double i = 0;
                         while (i < dice.getDiceNum()) {
                           await Future.delayed(Duration(milliseconds: 500));
-                          updateGreen3Posi();
+                          updateGreenPosi(greenNum: 7);
                           i++;
                         }
                         checkKill();
@@ -293,7 +293,7 @@ class _PlayScreenState extends State<PlayScreen> {
                         double i = 0;
                         while (i < dice.getDiceNum()) {
                           await Future.delayed(Duration(milliseconds: 500));
-                          updateGreen4Posi();
+                          updateGreenPosi(greenNum: 8);
                           i++;
                         }
                         checkKill();
@@ -417,71 +417,27 @@ class _PlayScreenState extends State<PlayScreen> {
   }
 
 //Green
-  void updateGreen1Posi() {
-    print("Current greenPosiNumber[5] : ${greenPath.greenPosiNumber[5]}");
+  void updateGreenPosi({int greenNum}) {
     print(
-        "Current fixedPosiNumber[5] : ${greenPath.greenPathMap[greenPath.greenPosiNumber[5]]}");
+        "Current greenPosiNumber[$greenNum] : ${greenPath.greenPosiNumber[greenNum]}");
+    print(
+        "Current fixedPosiNumber[$greenNum] : ${greenPath.greenPathMap[greenPath.greenPosiNumber[greenNum]]}");
 
-    posiBottom[5] = fixedpath.getBottomPosi(
-        posiNumber: greenPath.getGreen1Posi(increment: increment),
+    posiBottom[greenNum] = fixedpath.getBottomPosi(
+        posiNumber:
+            greenPath.getGreenPosi(increment: increment, greenNum: greenNum),
         gotiColor: "green");
-    posiLeft[5] = fixedpath.getLeftPosi(
-        posiNumber: greenPath.getGreen1Posi(increment: 0), gotiColor: "green");
+    posiLeft[greenNum] = fixedpath.getLeftPosi(
+        posiNumber: greenPath.getGreenPosi(increment: 0, greenNum: greenNum),
+        gotiColor: "green");
     setState(() {});
 
-    fixedPosiNumber[5] = greenPath.greenPathMap[greenPath.greenPosiNumber[5]];
-    print("Updated greenPosiNumber[5] : ${greenPath.greenPosiNumber[5]}");
+    fixedPosiNumber[greenNum] =
+        greenPath.greenPathMap[greenPath.greenPosiNumber[greenNum]];
     print(
-        "Updated fixedPosiNumber[5] : ${greenPath.greenPathMap[greenPath.greenPosiNumber[5]]}");
-  }
-
-  void updateGreen2Posi() {
-    print("Current greenPosiNumber[6] : ${greenPath.greenPosiNumber[6]}");
+        "Updated greenPosiNumber[$greenNum] : ${greenPath.greenPosiNumber[greenNum]}");
     print(
-        "Current fixedPosiNumber[6] : ${greenPath.greenPathMap[greenPath.greenPosiNumber[6]]}");
-    posiBottom[6] = fixedpath.getBottomPosi(
-        posiNumber: greenPath.getGreen2Posi(increment: increment),
-        gotiColor: "green");
-    posiLeft[6] = fixedpath.getLeftPosi(
-        posiNumber: greenPath.getGreen2Posi(increment: 0), gotiColor: "green");
-    setState(() {});
-
-    fixedPosiNumber[6] = greenPath.greenPathMap[greenPath.greenPosiNumber[6]];
-    print("Updated greenPosiNumber[6] : ${greenPath.greenPosiNumber[6]}");
-    print(
-        "Updated fixedPosiNumber[6] : ${greenPath.greenPathMap[greenPath.greenPosiNumber[6]]}");
-  }
-
-  void updateGreen3Posi() {
-    print("Current greenPosiNumber[7] : ${greenPath.greenPosiNumber[7]}");
-    print(
-        "Current fixedPosiNumber[7] : ${greenPath.greenPathMap[greenPath.greenPosiNumber[7]]}");
-    posiBottom[7] = fixedpath.getBottomPosi(
-        posiNumber: greenPath.getGreen3Posi(increment: increment),
-        gotiColor: "green");
-    posiLeft[7] = fixedpath.getLeftPosi(
-        posiNumber: greenPath.getGreen3Posi(increment: 0), gotiColor: "green");
-    setState(() {});
-    fixedPosiNumber[7] = greenPath.greenPathMap[greenPath.greenPosiNumber[7]];
-    print("Updated greenPosiNumber[7] : ${greenPath.greenPosiNumber[7]}");
-    print(
-        "Updated fixedPosiNumber[7] : ${greenPath.greenPathMap[greenPath.greenPosiNumber[7]]}");
-  }
-
-  void updateGreen4Posi() {
-    print("Current greenPosiNumber[8] : ${greenPath.greenPosiNumber[8]}");
-    print(
-        "Current fixedPosiNumber[8] : ${greenPath.greenPathMap[greenPath.greenPosiNumber[8]]}");
-    posiBottom[8] = fixedpath.getBottomPosi(
-        posiNumber: greenPath.getGreen4Posi(increment: increment),
-        gotiColor: "green");
-    posiLeft[8] = fixedpath.getLeftPosi(
-        posiNumber: greenPath.getGreen4Posi(increment: 0), gotiColor: "green");
-    setState(() {});
-    fixedPosiNumber[8] = greenPath.greenPathMap[greenPath.greenPosiNumber[8]];
-    print("Updated greenPosiNumber[8] : ${greenPath.greenPosiNumber[8]}");
-    print(
-        "Updated fixedPosiNumber[8] : ${greenPath.greenPathMap[greenPath.greenPosiNumber[8]]}");
+        "Updated fixedPosiNumber[$greenNum] : ${greenPath.greenPathMap[greenPath.greenPosiNumber[greenNum]]}");
   }
 
   void checkKill() {

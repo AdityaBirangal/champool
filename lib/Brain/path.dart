@@ -7,6 +7,8 @@ Fixed Positions
 11 12 13 14 15
 */
 
+import 'package:flutter/cupertino.dart';
+
 class Fixedpath {
   double fixedPosiNumber = 11;
 
@@ -173,38 +175,13 @@ Fixed Positions
     25: 33
   };
 
-  double getGreen1Posi({int increment}) {
-    greenPosiNumber[5] += increment;
-    print("Inside Greenpath/getGreen1Posi");
-    print("Greenpath/greenPathMap : ${greenPathMap[greenPosiNumber[5]]}");
-    print("Greenpath/greenPosiNumber[5] : ${greenPosiNumber[5]}");
-    return greenPathMap[greenPosiNumber[5]];
-  }
-
-  double getGreen2Posi({int increment}) {
-    greenPosiNumber[6] += increment;
-    print("Inside Redpath/getGreen2Posi");
-    print("Greenpath/greenPathMap : ${greenPathMap[greenPosiNumber[6]]}");
-    print("Greenpath/greenPosiNumber[6] : ${greenPosiNumber[6]}");
-
-    return greenPathMap[greenPosiNumber[6]];
-  }
-
-  double getGreen3Posi({int increment}) {
-    greenPosiNumber[7] += increment;
-    print("Inside Redpath/getGreen3Posi");
-    print("Greenpath/greenPathMap : ${greenPathMap[greenPosiNumber[7]]}");
-    print("Greenpath/greenPosiNumber[7] : ${greenPosiNumber[7]}");
-
-    return greenPathMap[greenPosiNumber[7]];
-  }
-
-  double getGreen4Posi({int increment}) {
-    greenPosiNumber[8] += increment;
-    print("Inside Redpath/getGreen4Posi");
-    print("Greenpath/greenPathMap : ${greenPathMap[greenPosiNumber[8]]}");
-    print("Greenpath/greenPosiNumber[8] : ${greenPosiNumber[8]}");
-
-    return greenPathMap[greenPosiNumber[8]];
+  double getGreenPosi({@required int increment, @required int greenNum}) {
+    greenPosiNumber[greenNum] += increment;
+    print("Inside Greenpath/getGreen${greenNum}Posi");
+    print(
+        "Greenpath/greenPathMap : ${greenPathMap[greenPosiNumber[greenNum]]}");
+    print(
+        "Greenpath/greenPosiNumber[$greenNum] : ${greenPosiNumber[greenNum]}");
+    return greenPathMap[greenPosiNumber[greenNum]];
   }
 }
