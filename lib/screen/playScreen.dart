@@ -52,10 +52,11 @@ class _PlayScreenState extends State<PlayScreen> {
 
   @override
   initState() {
-    updateRed1Posi();
-    updateRed2Posi();
-    updateRed3Posi();
-    updateRed4Posi();
+    updatePosi(gotiNum: 1);
+    updatePosi(gotiNum: 2);
+    updatePosi(gotiNum: 3);
+    updatePosi(gotiNum: 4);
+
     updateGreenPosi(greenNum: 5);
     updateGreenPosi(greenNum: 6);
     updateGreenPosi(greenNum: 7);
@@ -95,7 +96,7 @@ class _PlayScreenState extends State<PlayScreen> {
                         double i = 0;
                         while (i < dice.getDiceNum()) {
                           await Future.delayed(Duration(milliseconds: 500));
-                          updateRed1Posi();
+                          updatePosi(gotiNum: 1);
                           i++;
                         }
                         checkKill();
@@ -123,7 +124,7 @@ class _PlayScreenState extends State<PlayScreen> {
                         double i = 0;
                         while (i < dice.getDiceNum()) {
                           await Future.delayed(Duration(milliseconds: 500));
-                          updateRed2Posi();
+                          updatePosi(gotiNum: 2);
                           i++;
                         }
                         checkKill();
@@ -152,7 +153,7 @@ class _PlayScreenState extends State<PlayScreen> {
                         double i = 0;
                         while (i < dice.getDiceNum()) {
                           await Future.delayed(Duration(milliseconds: 500));
-                          updateRed3Posi();
+                          updatePosi(gotiNum: 3);
                           i++;
                         }
                         checkKill();
@@ -180,7 +181,7 @@ class _PlayScreenState extends State<PlayScreen> {
                         double i = 0;
                         while (i < dice.getDiceNum()) {
                           await Future.delayed(Duration(milliseconds: 500));
-                          updateRed4Posi();
+                          updatePosi(gotiNum: 4);
                           i++;
                         }
                         checkKill();
@@ -341,79 +342,28 @@ class _PlayScreenState extends State<PlayScreen> {
     );
   }
 
-  void updateRed1Posi() {
-    print("Current redPosiNumber[1] : ${redPath.redPosiNumber[1]}");
+  //Red
+  void updatePosi({int gotiNum}) {
     print(
-        "Current fixedPosiNumber[1] : ${redPath.redPathMap[redPath.redPosiNumber[1]]}");
+        "Current redPosiNumber[$gotiNum] : ${redPath.redPosiNumber[gotiNum]}");
+    print(
+        "Current fixedPosiNumber[$gotiNum] : ${redPath.redPathMap[redPath.redPosiNumber[gotiNum]]}");
 
-    posiBottom[1] = fixedpath.getBottomPosi(
-        posiNumber: redPath.getRed1Posi(increment: increment),
+    posiBottom[gotiNum] = fixedpath.getBottomPosi(
+        posiNumber: redPath.getPosi(gotiNum: gotiNum, increment: increment),
         gotiColor: "red");
-    posiLeft[1] = fixedpath.getLeftPosi(
-        posiNumber: redPath.getRed1Posi(increment: 0), gotiColor: "red");
+    posiLeft[gotiNum] = fixedpath.getLeftPosi(
+        posiNumber: redPath.getPosi(gotiNum: gotiNum, increment: 0),
+        gotiColor: "red");
     //Dont incriment second time, we already incremented in posiBottom
     setState(() {});
 
-    fixedPosiNumber[1] = redPath.redPathMap[redPath.redPosiNumber[1]];
-    print("Updated redPosiNumber[1] : ${redPath.redPosiNumber[1]}");
+    fixedPosiNumber[gotiNum] =
+        redPath.redPathMap[redPath.redPosiNumber[gotiNum]];
     print(
-        "Updated redPosiNumber[1] : ${redPath.redPathMap[redPath.redPosiNumber[1]]}");
-  }
-
-  void updateRed2Posi() {
-    print("Current redPosiNumber[2] : ${redPath.redPosiNumber[2]}");
+        "Updated redPosiNumber[$gotiNum] : ${redPath.redPosiNumber[gotiNum]}");
     print(
-        "Current fixedPosiNumber[2] : ${redPath.redPathMap[redPath.redPosiNumber[2]]}");
-
-    posiBottom[2] = fixedpath.getBottomPosi(
-        posiNumber: redPath.getRed2Posi(increment: increment),
-        gotiColor: "red");
-    posiLeft[2] = fixedpath.getLeftPosi(
-        posiNumber: redPath.getRed2Posi(increment: 0), gotiColor: "red");
-    //Dont incriment second time, we already incremented in posiBottom
-    setState(() {});
-
-    fixedPosiNumber[2] = redPath.redPathMap[redPath.redPosiNumber[2]];
-    print("Updated redPosiNumber[2] : ${redPath.redPosiNumber[2]}");
-    print(
-        "Updated redPosiNumber[2] : ${redPath.redPathMap[redPath.redPosiNumber[2]]}");
-  }
-
-  void updateRed3Posi() {
-    print("Current redPosiNumber[3] : ${redPath.redPosiNumber[3]}");
-    print(
-        "Current fixedPosiNumber[3] : ${redPath.redPathMap[redPath.redPosiNumber[3]]}");
-
-    posiBottom[3] = fixedpath.getBottomPosi(
-        posiNumber: redPath.getRed3Posi(increment: increment),
-        gotiColor: "red");
-    posiLeft[3] = fixedpath.getLeftPosi(
-        posiNumber: redPath.getRed3Posi(increment: 0), gotiColor: "red");
-    //Dont incriment second time, we already incremented in posiBottom
-    setState(() {});
-
-    fixedPosiNumber[3] = redPath.redPathMap[redPath.redPosiNumber[3]];
-    print("Updated redPosiNumber[3] : ${redPath.redPosiNumber[3]}");
-    print(
-        "Updated redPosiNumber[3] : ${redPath.redPathMap[redPath.redPosiNumber[3]]}");
-  }
-
-  void updateRed4Posi() {
-    print("Current redPosiNumber[4] : ${redPath.redPosiNumber[4]}");
-    print(
-        "Current fixedPosiNumber[4] : ${redPath.redPathMap[redPath.redPosiNumber[4]]}");
-
-    posiBottom[4] = fixedpath.getBottomPosi(
-        posiNumber: redPath.getRed4Posi(increment: increment),
-        gotiColor: "red");
-    posiLeft[4] = fixedpath.getLeftPosi(
-        posiNumber: redPath.getRed4Posi(increment: 0), gotiColor: "red");
-    //Dont incriment second time, we already incremented in posiBottom
-    setState(() {});
-    fixedPosiNumber[4] = redPath.redPathMap[redPath.redPosiNumber[4]];
-    print("Updated redPosiNumber[4] : ${redPath.redPosiNumber[4]}");
-    print(
-        "Updated redPosiNumber[4] : ${redPath.redPathMap[redPath.redPosiNumber[4]]}");
+        "Updated redPosiNumber[$gotiNum] : ${redPath.redPathMap[redPath.redPosiNumber[gotiNum]]}");
   }
 
 //Green
@@ -425,10 +375,10 @@ class _PlayScreenState extends State<PlayScreen> {
 
     posiBottom[greenNum] = fixedpath.getBottomPosi(
         posiNumber:
-            greenPath.getGreenPosi(increment: increment, greenNum: greenNum),
+            greenPath.getGreenPosi(greenNum: greenNum, increment: increment),
         gotiColor: "green");
     posiLeft[greenNum] = fixedpath.getLeftPosi(
-        posiNumber: greenPath.getGreenPosi(increment: 0, greenNum: greenNum),
+        posiNumber: greenPath.getGreenPosi(greenNum: greenNum, increment: 0),
         gotiColor: "green");
     setState(() {});
 
