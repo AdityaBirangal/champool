@@ -2,54 +2,54 @@ import 'package:flutter/material.dart';
 import 'package:champool/Brain/path.dart';
 import 'package:champool/Brain/dice.dart';
 
+Fixedpath fixedpath = Fixedpath();
+RedPath redPath = RedPath();
+GreenPath greenPath = GreenPath();
+Dice dice = Dice();
+
+int increment = 0;
+String whosTurn = "red";
+
+//red,green,yellow,blue
+Map<int, double> fixedPosiNumber = {
+  1: 13,
+  2: 13,
+  3: 13,
+  4: 13,
+  5: 35,
+  6: 35,
+  7: 35,
+  8: 35,
+};
+
+Map<int, double> posiBottom = {
+  1: 0,
+  2: 0,
+  3: 0,
+  4: 0,
+  5: 0,
+  6: 0,
+  7: 0,
+  8: 0,
+};
+
+Map<int, double> posiLeft = {
+  1: 0,
+  2: 0,
+  3: 0,
+  4: 0,
+  5: 0,
+  6: 0,
+  7: 0,
+  8: 0,
+};
+
 class PlayScreen extends StatefulWidget {
   @override
   _PlayScreenState createState() => _PlayScreenState();
 }
 
 class _PlayScreenState extends State<PlayScreen> {
-  Fixedpath fixedpath = Fixedpath();
-  RedPath redPath = RedPath();
-  GreenPath greenPath = GreenPath();
-  Dice dice = Dice();
-
-  int increment = 0;
-  String whosTurn = "red";
-
-  //red,green,yellow,blue
-  Map<int, double> fixedPosiNumber = {
-    1: 13,
-    2: 13,
-    3: 13,
-    4: 13,
-    5: 35,
-    6: 35,
-    7: 35,
-    8: 35,
-  };
-
-  Map<int, double> posiBottom = {
-    1: 0,
-    2: 0,
-    3: 0,
-    4: 0,
-    5: 0,
-    6: 0,
-    7: 0,
-    8: 0,
-  };
-
-  Map<int, double> posiLeft = {
-    1: 0,
-    2: 0,
-    3: 0,
-    4: 0,
-    5: 0,
-    6: 0,
-    7: 0,
-    8: 0,
-  };
-
   @override
   initState() {
     updatePosi(gotiNum: 1);
@@ -78,233 +78,18 @@ class _PlayScreenState extends State<PlayScreen> {
                   height: 360,
                   width: 360,
                 ),
-                //Red
-                Positioned(
-                  bottom: posiBottom[1],
-                  left: posiLeft[1],
-                  child: GestureDetector(
-                    child: Container(
-                      child: Text("1"),
-                      height: 24,
-                      width: 24,
-                      color: Colors.red,
-                    ),
-                    onTap: () async {
-                      print("red1 Tap");
-                      print("whosTurn : $whosTurn");
-                      if (whosTurn == "red") {
-                        double i = 0;
-                        while (i < dice.getDiceNum()) {
-                          await Future.delayed(Duration(milliseconds: 500));
-                          updatePosi(gotiNum: 1);
-                          i++;
-                        }
-                        checkKill();
-                        whosTurn = "green";
-                        updateDiceColor();
-                        print("whosTurn chenged to : $whosTurn");
-                      }
-                    },
-                  ),
-                ),
-                Positioned(
-                  bottom: posiBottom[2],
-                  left: posiLeft[2],
-                  child: GestureDetector(
-                    child: Container(
-                      child: Text("2"),
-                      height: 24,
-                      width: 24,
-                      color: Colors.red,
-                    ),
-                    onTap: () async {
-                      print("red2 Tap");
-                      print("whosTurn : $whosTurn");
-                      if (whosTurn == "red") {
-                        double i = 0;
-                        while (i < dice.getDiceNum()) {
-                          await Future.delayed(Duration(milliseconds: 500));
-                          updatePosi(gotiNum: 2);
-                          i++;
-                        }
-                        checkKill();
-                        whosTurn = "green";
-                        updateDiceColor();
 
-                        print("whosTurn chenged to : $whosTurn");
-                      }
-                    },
-                  ),
-                ),
-                Positioned(
-                  bottom: posiBottom[3],
-                  left: posiLeft[3],
-                  child: GestureDetector(
-                    child: Container(
-                      child: Text("3"),
-                      height: 24,
-                      width: 24,
-                      color: Colors.red,
-                    ),
-                    onTap: () async {
-                      print("red3 Tap");
-                      print("whosTurn : $whosTurn");
-                      if (whosTurn == "red") {
-                        double i = 0;
-                        while (i < dice.getDiceNum()) {
-                          await Future.delayed(Duration(milliseconds: 500));
-                          updatePosi(gotiNum: 3);
-                          i++;
-                        }
-                        checkKill();
-                        whosTurn = "green";
-                        updateDiceColor();
-                        print("whosTurn chenged to : $whosTurn");
-                      }
-                    },
-                  ),
-                ),
-                Positioned(
-                  bottom: posiBottom[4],
-                  left: posiLeft[4],
-                  child: GestureDetector(
-                    child: Container(
-                      child: Text("4"),
-                      height: 24,
-                      width: 24,
-                      color: Colors.red,
-                    ),
-                    onTap: () async {
-                      print("red4 Tap");
-                      print("whosTurn : $whosTurn");
-                      if (whosTurn == "red") {
-                        double i = 0;
-                        while (i < dice.getDiceNum()) {
-                          await Future.delayed(Duration(milliseconds: 500));
-                          updatePosi(gotiNum: 4);
-                          i++;
-                        }
-                        checkKill();
-                        whosTurn = "green";
-                        updateDiceColor();
-                        print("whosTurn chenged to : $whosTurn");
-                      }
-                    },
-                  ),
-                ),
+                //Red
+                Goti(gotiNum: 1),
+                Goti(gotiNum: 2),
+                Goti(gotiNum: 3),
+                Goti(gotiNum: 4),
+
                 //Green
-                Positioned(
-                  bottom: posiBottom[5],
-                  left: posiLeft[5],
-                  child: GestureDetector(
-                    child: Container(
-                      child: Text("1"),
-                      height: 24,
-                      width: 24,
-                      color: Colors.green,
-                    ),
-                    onTap: () async {
-                      print("green1 Tap");
-                      print("whosTurn : $whosTurn");
-                      if (whosTurn == "green") {
-                        double i = 0;
-                        while (i < dice.getDiceNum()) {
-                          await Future.delayed(Duration(milliseconds: 500));
-                          updateGreenPosi(gotiNum: 5);
-                          i++;
-                        }
-                        checkKill();
-                        whosTurn = "red";
-                        updateDiceColor();
-                        print("whosTurn chenged to : $whosTurn");
-                      }
-                    },
-                  ),
-                ),
-                Positioned(
-                  bottom: posiBottom[6],
-                  left: posiLeft[6],
-                  child: GestureDetector(
-                    child: Container(
-                      child: Text("2"),
-                      height: 24,
-                      width: 24,
-                      color: Colors.green,
-                    ),
-                    onTap: () async {
-                      print("green2 Tap");
-                      print("whosTurn : $whosTurn");
-                      if (whosTurn == "green") {
-                        double i = 0;
-                        while (i < dice.getDiceNum()) {
-                          await Future.delayed(Duration(milliseconds: 500));
-                          updateGreenPosi(gotiNum: 6);
-                          i++;
-                        }
-                        checkKill();
-                        whosTurn = "red";
-                        updateDiceColor();
-                        print("whosTurn chenged to : $whosTurn");
-                      }
-                    },
-                  ),
-                ),
-                Positioned(
-                  bottom: posiBottom[7],
-                  left: posiLeft[7],
-                  child: GestureDetector(
-                    child: Container(
-                      child: Text("3"),
-                      height: 24,
-                      width: 24,
-                      color: Colors.green,
-                    ),
-                    onTap: () async {
-                      print("green3 Tap");
-                      print("whosTurn : $whosTurn");
-                      if (whosTurn == "green") {
-                        double i = 0;
-                        while (i < dice.getDiceNum()) {
-                          await Future.delayed(Duration(milliseconds: 500));
-                          updateGreenPosi(gotiNum: 7);
-                          i++;
-                        }
-                        checkKill();
-                        whosTurn = "red";
-                        updateDiceColor();
-                        print("whosTurn chenged to : $whosTurn");
-                      }
-                    },
-                  ),
-                ),
-                Positioned(
-                  bottom: posiBottom[8],
-                  left: posiLeft[8],
-                  child: GestureDetector(
-                    child: Container(
-                      child: Text("4"),
-                      height: 24,
-                      width: 24,
-                      color: Colors.green,
-                    ),
-                    onTap: () async {
-                      print("green4 Tap");
-                      print("whosTurn : $whosTurn");
-                      if (whosTurn == "green") {
-                        double i = 0;
-                        while (i < dice.getDiceNum()) {
-                          await Future.delayed(Duration(milliseconds: 500));
-                          updateGreenPosi(gotiNum: 8);
-                          i++;
-                        }
-                        checkKill();
-                        whosTurn = "red";
-                        updateDiceColor();
-                        print("whosTurn chenged to : $whosTurn");
-                      }
-                    },
-                  ),
-                ),
+                Goti(gotiNum: 5),
+                Goti(gotiNum: 6),
+                Goti(gotiNum: 7),
+                Goti(gotiNum: 8),
               ],
             ),
             Text("WhosTurn : $whosTurn"),
@@ -474,5 +259,53 @@ class _PlayScreenState extends State<PlayScreen> {
     } else if (whosTurn == "blue") {
       diceColor = Colors.blue;
     }
+  }
+
+  Positioned Goti({@required int gotiNum}) {
+    Color myColor;
+    String myColorString;
+    if (gotiNum == 1 || gotiNum == 2 || gotiNum == 3 || gotiNum == 4) {
+      myColor = Colors.red;
+      myColorString = "red";
+    } else if (gotiNum == 5 || gotiNum == 6 || gotiNum == 7 || gotiNum == 8) {
+      myColor = Colors.green;
+      myColorString = "green";
+    }
+    return Positioned(
+      bottom: posiBottom[gotiNum],
+      left: posiLeft[gotiNum],
+      child: GestureDetector(
+        child: Container(
+          child: Text("$gotiNum"),
+          height: 24,
+          width: 24,
+          color: myColor,
+        ),
+        onTap: () async {
+          print("Goti$gotiNum Tap");
+          print("whosTurn : $whosTurn");
+          if (whosTurn == myColorString) {
+            double i = 0;
+            while (i < dice.getDiceNum()) {
+              await Future.delayed(Duration(milliseconds: 500));
+              if (myColorString == "red") {
+                updatePosi(gotiNum: gotiNum);
+              } else if (myColorString == "green") {
+                updateGreenPosi(gotiNum: gotiNum);
+              }
+              i++;
+            }
+            checkKill();
+            if (myColorString == "red") {
+              whosTurn = "green";
+            } else if (myColorString == "green") {
+              whosTurn = "red";
+            }
+            updateDiceColor();
+            print("whosTurn chenged to : $whosTurn");
+          }
+        },
+      ),
+    );
   }
 }
