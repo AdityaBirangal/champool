@@ -7,6 +7,8 @@ Fixed Positions
 11 12 13 14 15
 */
 
+import 'package:flutter/cupertino.dart';
+
 class Fixedpath {
   double fixedPosiNumber = 11;
 
@@ -47,10 +49,12 @@ class Fixedpath {
 }
 
 class RedPath {
-  double red1PosiNumber = 1;
-  double red2PosiNumber = 1;
-  double red3PosiNumber = 1;
-  double red4PosiNumber = 1;
+  Map<int, int> redPosiNumber = {
+    1: 1,
+    2: 1,
+    3: 1,
+    4: 1,
+  };
 
   /*
 Fixed Positions
@@ -89,48 +93,23 @@ Fixed Positions
     25: 33
   };
 
-  double getRed1Posi({double red1PosiIncrement}) {
-    red1PosiNumber += red1PosiIncrement;
-    print("Inside Redpath/getRed1Posi");
-    print("Redpath/redPathMap ${redPathMap[red1PosiNumber]}");
-    print("Redpath/red1PosiNumber $red1PosiNumber");
+  double getPosi({@required int gotiNum, @required int increment}) {
+    redPosiNumber[gotiNum] += increment;
+    print("Inside Redpath/getRed${gotiNum}Posi");
+    print("Redpath/redPathMap ${redPathMap[redPosiNumber[gotiNum]]}");
+    print("Redpath/redPosiNumber[$gotiNum] ${redPosiNumber[gotiNum]}");
 
-    return redPathMap[red1PosiNumber];
-  }
-
-  double getRed2Posi({double red2PosiIncrement}) {
-    red2PosiNumber += red2PosiIncrement;
-    print("Inside Redpath/getRed2Posi");
-    print("Redpath/redPathMap ${redPathMap[red2PosiNumber]}");
-    print("Redpath/red2PosiNumber $red2PosiNumber");
-
-    return redPathMap[red2PosiNumber];
-  }
-
-  double getRed3Posi({double red3PosiIncrement}) {
-    red3PosiNumber += red3PosiIncrement;
-    print("Inside Redpath/getRed3Posi");
-    print("Redpath/redPathMap ${redPathMap[red3PosiNumber]}");
-    print("Redpath/red3PosiNumber $red3PosiNumber");
-
-    return redPathMap[red3PosiNumber];
-  }
-
-  double getRed4Posi({double red4PosiIncrement}) {
-    red4PosiNumber += red4PosiIncrement;
-    print("Inside Redpath/getRed4Posi");
-    print("Redpath/redPathMap ${redPathMap[red4PosiNumber]}");
-    print("Redpath/red4PosiNumber $red4PosiNumber");
-
-    return redPathMap[red4PosiNumber];
+    return redPathMap[redPosiNumber[gotiNum]];
   }
 }
 
 class GreenPath {
-  double green1PosiNumber = 1;
-  double green2PosiNumber = 1;
-  double green3PosiNumber = 1;
-  double green4PosiNumber = 1;
+  Map<int, int> greenPosiNumber = {
+    5: 1,
+    6: 1,
+    7: 1,
+    8: 1,
+  };
 
   /*
 Fixed Positions
@@ -141,7 +120,7 @@ Fixed Positions
 11 12 13 14 15
 */
 
-  Map<double, double> greenPathMap = {
+  Map<int, double> greenPathMap = {
     1: 35,
     2: 45,
     3: 55,
@@ -169,39 +148,14 @@ Fixed Positions
     25: 33
   };
 
-  double getGreen1Posi({double increment}) {
-    green1PosiNumber += increment;
-    print("Inside Greenpath/getGreen1Posi");
-    print("Greenpath/greenPathMap ${greenPathMap[green1PosiNumber]}");
-    print("Greenpath/green1PosiNumber $green1PosiNumber");
-
-    return greenPathMap[green1PosiNumber];
-  }
-
-  double getGreen2Posi({double increment}) {
-    green2PosiNumber += increment;
-    print("Inside Redpath/getGreen2Posi");
-    print("Greenpath/greenPathMap ${greenPathMap[green2PosiNumber]}");
-    print("Greenpath/green2PosiNumber $green2PosiNumber");
-
-    return greenPathMap[green2PosiNumber];
-  }
-
-  double getGreen3Posi({double increment}) {
-    green3PosiNumber += increment;
-    print("Inside Redpath/getGreen3Posi");
-    print("Greenpath/greenPathMap ${greenPathMap[green3PosiNumber]}");
-    print("Greenpath/green3PosiNumber $green3PosiNumber");
-
-    return greenPathMap[green3PosiNumber];
-  }
-
-  double getGreen4Posi({double increment}) {
-    green4PosiNumber += increment;
-    print("Inside Redpath/getGreen4Posi");
-    print("Greenpath/greenPathMap ${greenPathMap[green4PosiNumber]}");
-    print("Greenpath/green4PosiNumber $green4PosiNumber");
-
-    return greenPathMap[green4PosiNumber];
+  double getPosi({
+    @required int gotiNum,
+    @required int increment,
+  }) {
+    greenPosiNumber[gotiNum] += increment;
+    print("Inside Greenpath/getGreen${gotiNum}Posi");
+    print("Greenpath/greenPathMap : ${greenPathMap[greenPosiNumber[gotiNum]]}");
+    print("Greenpath/greenPosiNumber[$gotiNum] : ${greenPosiNumber[gotiNum]}");
+    return greenPathMap[greenPosiNumber[gotiNum]];
   }
 }
