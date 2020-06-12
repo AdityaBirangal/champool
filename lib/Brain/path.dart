@@ -9,6 +9,7 @@ Fixed Positions
 
 import 'package:flutter/cupertino.dart';
 
+//--Fixedpath-----------------------------------------------
 class Fixedpath {
   double fixedPosiNumber = 11;
 
@@ -20,6 +21,9 @@ class Fixedpath {
     }
     if (gotiColor == "green") {
       bottomAdjestment = -12;
+    }
+    if (gotiColor == "yellow") {
+      bottomAdjestment = -36;
     }
 
     print("Inside Fixedpath/getBottomPosi");
@@ -39,6 +43,9 @@ class Fixedpath {
     if (gotiColor == "green") {
       leftAdjestment = -36;
     }
+    if (gotiColor == "yellow") {
+      leftAdjestment = -12;
+    }
 
     print("Inside Fixedpath/LeftPosi");
     int tempInt = (posiNumber % 10).floor() - 1;
@@ -48,8 +55,9 @@ class Fixedpath {
   }
 }
 
+//--Redpath-----------------------------------------------
 class RedPath {
-  Map<int, int> redPosiNumber = {
+  Map<int, int> posiNumber = {
     1: 1,
     2: 1,
     3: 1,
@@ -94,17 +102,18 @@ Fixed Positions
   };
 
   double getPosi({@required int gotiNum, @required int increment}) {
-    redPosiNumber[gotiNum] += increment;
+    posiNumber[gotiNum] += increment;
     print("Inside Redpath/getRed${gotiNum}Posi");
-    print("Redpath/redPathMap ${redPathMap[redPosiNumber[gotiNum]]}");
-    print("Redpath/redPosiNumber[$gotiNum] ${redPosiNumber[gotiNum]}");
+    print("Redpath/redPathMap ${redPathMap[posiNumber[gotiNum]]}");
+    print("Redpath/redPosiNumber[$gotiNum] ${posiNumber[gotiNum]}");
 
-    return redPathMap[redPosiNumber[gotiNum]];
+    return redPathMap[posiNumber[gotiNum]];
   }
 }
 
+//--Redpath-----------------------------------------------
 class GreenPath {
-  Map<int, int> greenPosiNumber = {
+  Map<int, int> posiNumber = {
     5: 1,
     6: 1,
     7: 1,
@@ -152,10 +161,68 @@ Fixed Positions
     @required int gotiNum,
     @required int increment,
   }) {
-    greenPosiNumber[gotiNum] += increment;
+    posiNumber[gotiNum] += increment;
     print("Inside Greenpath/getGreen${gotiNum}Posi");
-    print("Greenpath/greenPathMap : ${greenPathMap[greenPosiNumber[gotiNum]]}");
-    print("Greenpath/greenPosiNumber[$gotiNum] : ${greenPosiNumber[gotiNum]}");
-    return greenPathMap[greenPosiNumber[gotiNum]];
+    print("Greenpath/greenPathMap : ${greenPathMap[posiNumber[gotiNum]]}");
+    print("Greenpath/greenPosiNumber[$gotiNum] : ${posiNumber[gotiNum]}");
+    return greenPathMap[posiNumber[gotiNum]];
+  }
+}
+
+//--Redpath-----------------------------------------------
+class YellowPath {
+  Map<int, int> posiNumber = {
+    9: 1,
+    10: 1,
+    11: 1,
+    12: 1,
+  };
+
+  /*
+Fixed Positions
+51 52 53 54 55
+41 42 43 44 45
+31 32 33 34 35
+21 22 23 24 25
+11 12 13 14 15
+*/
+
+  Map<int, double> yellowPathMap = {
+    1: 53,
+    2: 52,
+    3: 51,
+    4: 41,
+    5: 31,
+    6: 21,
+    7: 11,
+    8: 12,
+    9: 13,
+    10: 14,
+    11: 15,
+    12: 25,
+    13: 35,
+    14: 45,
+    15: 55,
+    16: 54,
+    17: 44,
+    18: 34,
+    19: 24,
+    20: 23,
+    21: 22,
+    22: 32,
+    23: 42,
+    24: 43,
+    25: 33
+  };
+
+  double getPosi({
+    @required int gotiNum,
+    @required int increment,
+  }) {
+    posiNumber[gotiNum] += increment;
+    print("Inside Yellowpath/getYellow${gotiNum}Posi");
+    print("Yellowpath/yellowPathMap : ${yellowPathMap[posiNumber[gotiNum]]}");
+    print("Yellowpath/yellowPosiNumber[$gotiNum] : ${posiNumber[gotiNum]}");
+    return yellowPathMap[posiNumber[gotiNum]];
   }
 }

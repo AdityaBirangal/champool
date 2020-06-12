@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 int myNum = 3;
-Color diceColor;
+Color diceColor = Colors.red;
 String whosTurn;
 
 class Dice extends StatefulWidget {
