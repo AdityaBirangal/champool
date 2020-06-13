@@ -266,6 +266,7 @@ class _PlayScreenState extends State<PlayScreen> {
   }
 
   void checkKill(int gotiNum) {
+    //From Red
     if (getGotiColor(gotiNum: gotiNum) == "red") {
       for (int j = 5; j <= 16; j++) {
         if (fixedPosiNumber[gotiNum] == 13 ||
@@ -280,16 +281,78 @@ class _PlayScreenState extends State<PlayScreen> {
 
           if (getGotiColor(gotiNum: j) == "green") {
             greenPath.posiNumber[j] = 1;
-            fixedPosiNumber[j] = 35; //35 is Home fixed Nuber of Green
+            fixedPosiNumber[j] = 35; //35 is Home fixed Number of Green
             print("Current PosiNumber[$j] : ${greenPath.posiNumber[j]}");
           } else if (getGotiColor(gotiNum: j) == "yellow") {
             yellowPath.posiNumber[j] = 1;
-            fixedPosiNumber[j] = 53; //35 is Home fixed Nuber of Green
+            fixedPosiNumber[j] = 53; //53 is Home fixed Number of Yellow
             print("Current PosiNumber[$j] : ${yellowPath.posiNumber[j]}");
           } else if (getGotiColor(gotiNum: j) == "blue") {
             bluePath.posiNumber[j] = 1;
-            fixedPosiNumber[j] = 31; //35 is Home fixed Nuber of Green
+            fixedPosiNumber[j] = 31; //31 is Home fixed Number of Blue
             print("Current PosiNumber[$j] : ${bluePath.posiNumber[j]}");
+          }
+
+          posiBottom[j] = fixedpath.getBottomPosi(
+              posiNumber: fixedPosiNumber[j],
+              gotiColor: getGotiColor(gotiNum: j));
+          posiLeft[j] = fixedpath.getLeftPosi(
+              posiNumber: fixedPosiNumber[j],
+              gotiColor: getGotiColor(gotiNum: j));
+          setState(() {});
+        }
+      }
+    }
+
+    //From Green
+    if (getGotiColor(gotiNum: gotiNum) == "green") {
+      for (int j = 9; j <= 16; j++) {
+        if (fixedPosiNumber[gotiNum] == 13 ||
+            fixedPosiNumber[gotiNum] == 35 ||
+            fixedPosiNumber[gotiNum] == 53 ||
+            fixedPosiNumber[gotiNum] == 31 ||
+            fixedPosiNumber[gotiNum] == 33) {
+          print(
+              "Goti$gotiNum is Not Killed to Goti$j (Home Place ${fixedPosiNumber[gotiNum]})");
+        } else if (fixedPosiNumber[gotiNum] == fixedPosiNumber[j]) {
+          print("Goti$gotiNum killed Goti$j");
+
+          if (getGotiColor(gotiNum: j) == "yellow") {
+            yellowPath.posiNumber[j] = 1;
+            fixedPosiNumber[j] = 53; //53 is Home fixed Number of Yellow
+            print("Current PosiNumber[$j] : ${yellowPath.posiNumber[j]}");
+          } else if (getGotiColor(gotiNum: j) == "blue") {
+            bluePath.posiNumber[j] = 1;
+            fixedPosiNumber[j] = 31; //31 is Home fixed Number of Blue
+            print("Current PosiNumber[$j] : ${bluePath.posiNumber[j]}");
+          }
+
+          posiBottom[j] = fixedpath.getBottomPosi(
+              posiNumber: fixedPosiNumber[j],
+              gotiColor: getGotiColor(gotiNum: j));
+          posiLeft[j] = fixedpath.getLeftPosi(
+              posiNumber: fixedPosiNumber[j],
+              gotiColor: getGotiColor(gotiNum: j));
+          setState(() {});
+        }
+      }
+
+      //To kill red
+      for (int j = 1; j <= 4; j++) {
+        if (fixedPosiNumber[gotiNum] == 13 ||
+            fixedPosiNumber[gotiNum] == 35 ||
+            fixedPosiNumber[gotiNum] == 53 ||
+            fixedPosiNumber[gotiNum] == 31 ||
+            fixedPosiNumber[gotiNum] == 33) {
+          print(
+              "Goti$gotiNum is Not Killed to Goti$j (Home Place ${fixedPosiNumber[gotiNum]})");
+        } else if (fixedPosiNumber[gotiNum] == fixedPosiNumber[j]) {
+          print("Goti$gotiNum killed Goti$j");
+
+          if (getGotiColor(gotiNum: j) == "red") {
+            redPath.posiNumber[j] = 1;
+            fixedPosiNumber[j] = 13; //13 is Home fixed Number of Red
+            print("Current PosiNumber[$j] : ${redPath.posiNumber[j]}");
           }
 
           posiBottom[j] = fixedpath.getBottomPosi(
