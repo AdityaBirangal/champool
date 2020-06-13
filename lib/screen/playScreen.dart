@@ -3,6 +3,7 @@ import 'package:champool/Brain/path.dart';
 import 'package:champool/Brain/dice.dart';
 
 Fixedpath fixedpath = Fixedpath();
+
 RedPath redPath = RedPath();
 GreenPath greenPath = GreenPath();
 YellowPath yellowPath = YellowPath();
@@ -218,7 +219,31 @@ class _PlayScreenState extends State<PlayScreen> {
         "Updated fixedPosiNumber[$gotiNum] : ${yellowPath.yellowPathMap[yellowPath.posiNumber[gotiNum]]}");
   }
 
-  void checkKill() {
+  void checkKill(int gotiNum) {
+    if (gotiNum == 1 || gotiNum == 2 || gotiNum == 3 || gotiNum == 4) {
+      for (int j = 5; j <= 12; j++) {
+        if (fixedPosiNumber[gotiNum] == 13 ||
+            fixedPosiNumber[gotiNum] == 35 ||
+            fixedPosiNumber[gotiNum] == 53 ||
+            fixedPosiNumber[gotiNum] == 31 ||
+            fixedPosiNumber[gotiNum] == 33) {
+          print(
+              "Goti$gotiNum is Not Killed to Goti$j (Home Place ${fixedPosiNumber[gotiNum]})");
+        } else if (fixedPosiNumber[gotiNum] == fixedPosiNumber[j]) {
+          print("Goti$gotiNum killed Goti$j");
+          greenPath.posiNumber[j] = 1;
+          fixedPosiNumber[j] = 35; //35 is Home fixed Nuber of Green
+          print("Current PosiNumber[$j] : ${greenPath.posiNumber[j]}");
+
+          posiBottom[j] = fixedpath.getBottomPosi(
+              posiNumber: fixedPosiNumber[j], gotiColor: "green");
+          posiLeft[j] = fixedpath.getLeftPosi(
+              posiNumber: fixedPosiNumber[j], gotiColor: "green");
+          setState(() {});
+        }
+      }
+    }
+
     if (whosTurn == "red") {
       int i;
       int j;
@@ -335,6 +360,24 @@ class _PlayScreenState extends State<PlayScreen> {
     }
   }
 
+  String getGotiColor(@required int gotiNum) {
+    if (gotiNum == 1 || gotiNum == 2 || gotiNum == 3 || gotiNum == 4) {
+      return "red";
+    } else if (gotiNum == 5 || gotiNum == 6 || gotiNum == 7 || gotiNum == 8) {
+      return "green";
+    } else if (gotiNum == 9 ||
+        gotiNum == 10 ||
+        gotiNum == 11 ||
+        gotiNum == 12) {
+      return 'yellow';
+    } else if (gotiNum == 13 ||
+        gotiNum == 14 ||
+        gotiNum == 15 ||
+        gotiNum == 16) {
+      return 'blue';
+    }
+  }
+
   Positioned Goti({@required int gotiNum}) {
     Color myColor;
     String myColorString;
@@ -378,7 +421,7 @@ class _PlayScreenState extends State<PlayScreen> {
               }
               i++;
             }
-            checkKill();
+            checkKill(gotiNum);
             if (myColorString == "red") {
               whosTurn = "green";
             } else if (myColorString == "green") {
