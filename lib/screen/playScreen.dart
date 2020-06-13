@@ -7,6 +7,7 @@ Fixedpath fixedpath = Fixedpath();
 RedPath redPath = RedPath();
 GreenPath greenPath = GreenPath();
 YellowPath yellowPath = YellowPath();
+BluePath bluePath = BluePath();
 
 Dice dice = Dice();
 
@@ -229,6 +230,28 @@ class _PlayScreenState extends State<PlayScreen> {
         "Updated yellowPosiNumber[$gotiNum] : ${yellowPath.posiNumber[gotiNum]}");
     print(
         "Updated fixedPosiNumber[$gotiNum] : ${yellowPath.yellowPathMap[yellowPath.posiNumber[gotiNum]]}");
+  }
+
+//Blue
+  void updateBluePosi({int gotiNum}) {
+    print("Current bluePosiNumber[$gotiNum] : ${bluePath.posiNumber[gotiNum]}");
+    print(
+        "Current fixedPosiNumber[$gotiNum] : ${bluePath.bluePathMap[bluePath.posiNumber[gotiNum]]}");
+
+    posiBottom[gotiNum] = fixedpath.getBottomPosi(
+        posiNumber: bluePath.getPosi(gotiNum: gotiNum, increment: increment),
+        gotiColor: "blue");
+    posiLeft[gotiNum] = fixedpath.getLeftPosi(
+        posiNumber: bluePath.getPosi(gotiNum: gotiNum, increment: 0),
+        gotiColor: "blue");
+    setState(() {});
+
+    fixedPosiNumber[gotiNum] =
+    bluePath.bluePathMap[bluePath.posiNumber[gotiNum]];
+    print(
+        "Updated bluePosiNumber[$gotiNum] : ${bluePath.posiNumber[gotiNum]}");
+    print(
+        "Updated fixedPosiNumber[$gotiNum] : ${bluePath.bluePathMap[bluePath.posiNumber[gotiNum]]}");
   }
 
   void checkKill(int gotiNum) {
