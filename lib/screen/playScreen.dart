@@ -360,39 +360,37 @@ class _PlayScreenState extends State<PlayScreen> {
     }
   }
 
-  String getGotiColor(@required int gotiNum) {
-    if (gotiNum == 1 || gotiNum == 2 || gotiNum == 3 || gotiNum == 4) {
-      return "red";
-    } else if (gotiNum == 5 || gotiNum == 6 || gotiNum == 7 || gotiNum == 8) {
-      return "green";
-    } else if (gotiNum == 9 ||
-        gotiNum == 10 ||
-        gotiNum == 11 ||
-        gotiNum == 12) {
-      return 'yellow';
-    } else if (gotiNum == 13 ||
-        gotiNum == 14 ||
-        gotiNum == 15 ||
-        gotiNum == 16) {
-      return 'blue';
-    }
-  }
-
-  Positioned Goti({@required int gotiNum}) {
-    Color myColor;
+  String getGotiColor(int gotiNum) {
     String myColorString;
     if (gotiNum == 1 || gotiNum == 2 || gotiNum == 3 || gotiNum == 4) {
-      myColor = Colors.red;
       myColorString = "red";
     } else if (gotiNum == 5 || gotiNum == 6 || gotiNum == 7 || gotiNum == 8) {
-      myColor = Colors.green;
       myColorString = "green";
     } else if (gotiNum == 9 ||
         gotiNum == 10 ||
         gotiNum == 11 ||
         gotiNum == 12) {
+      myColorString = 'yellow';
+    } else if (gotiNum == 13 ||
+        gotiNum == 14 ||
+        gotiNum == 15 ||
+        gotiNum == 16) {
+      myColorString = 'blue';
+    }
+    return myColorString;
+  }
+
+  Positioned Goti({int gotiNum}) {
+    Color myColor;
+    String myColorString = getGotiColor(gotiNum);
+    if (myColorString == "red") {
+      myColor = Colors.red;
+    } else if (myColorString == "green") {
+      myColor = Colors.green;
+    } else if (myColorString == "yellow") {
       myColor = Colors.yellow;
-      myColorString = "yellow";
+    } else if (myColorString == "blue") {
+      myColor = Colors.blue;
     }
 
     return Positioned(
