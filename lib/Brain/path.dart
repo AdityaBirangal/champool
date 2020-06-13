@@ -25,6 +25,9 @@ class Fixedpath {
     if (gotiColor == "yellow") {
       bottomAdjestment = -36;
     }
+    if (gotiColor == "blue") {
+      bottomAdjestment = -12;
+    }
 
     print("Inside Fixedpath/getBottomPosi");
     int tempInt = (posiNumber / 10).floor() -
@@ -45,6 +48,9 @@ class Fixedpath {
     }
     if (gotiColor == "yellow") {
       leftAdjestment = -12;
+    }
+    if (gotiColor == "blue") {
+      leftAdjestment = 12;
     }
 
     print("Inside Fixedpath/LeftPosi");
