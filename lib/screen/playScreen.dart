@@ -94,6 +94,11 @@ class _PlayScreenState extends State<PlayScreen> {
     updateYellowPosi(gotiNum: 10);
     updateYellowPosi(gotiNum: 11);
     updateYellowPosi(gotiNum: 12);
+
+    updateBluePosi(gotiNum: 13);
+    updateBluePosi(gotiNum: 14);
+    updateBluePosi(gotiNum: 15);
+    updateBluePosi(gotiNum: 16);
   }
 
   Widget build(BuildContext context) {
@@ -124,10 +129,17 @@ class _PlayScreenState extends State<PlayScreen> {
                 Goti(gotiNum: 7),
                 Goti(gotiNum: 8),
 
+                //Yellow
                 Goti(gotiNum: 9),
                 Goti(gotiNum: 10),
                 Goti(gotiNum: 11),
                 Goti(gotiNum: 12),
+
+                //Blue
+                Goti(gotiNum: 13),
+                Goti(gotiNum: 14),
+                Goti(gotiNum: 15),
+                Goti(gotiNum: 16),
               ],
             ),
             Text("WhosTurn : $whosTurn"),
