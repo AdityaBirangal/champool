@@ -169,7 +169,7 @@ Fixed Positions
   }
 }
 
-//--Redpath-----------------------------------------------
+//--Yellowpath-----------------------------------------------
 class YellowPath {
   Map<int, int> posiNumber = {
     9: 1,
@@ -224,5 +224,63 @@ Fixed Positions
     print("Yellowpath/yellowPathMap : ${yellowPathMap[posiNumber[gotiNum]]}");
     print("Yellowpath/yellowPosiNumber[$gotiNum] : ${posiNumber[gotiNum]}");
     return yellowPathMap[posiNumber[gotiNum]];
+  }
+}
+
+//--Bluepath-----------------------------------------------
+class BluePath {
+  Map<int, int> posiNumber = {
+    13: 1,
+    14: 1,
+    15: 1,
+    16: 1,
+  };
+
+  /*
+Fixed Positions
+51 52 53 54 55
+41 42 43 44 45
+31 32 33 34 35
+21 22 23 24 25
+11 12 13 14 15
+*/
+
+  Map<int, double> bluePathMap = {
+    1: 31,
+    2: 21,
+    3: 11,
+    4: 12,
+    5: 13,
+    6: 14,
+    7: 15,
+    8: 25,
+    9: 35,
+    10: 45,
+    11: 55,
+    12: 54,
+    13: 53,
+    14: 52,
+    15: 51,
+    16: 41,
+    17: 42,
+    18: 43,
+    19: 44,
+    20: 34,
+    21: 24,
+    22: 23,
+    23: 22,
+    24: 32,
+    25: 33
+  };
+
+  double getPosi({
+    @required int gotiNum,
+    @required int increment,
+  }) {
+    posiNumber[gotiNum] += increment;
+    print("Inside Yellowpath/getYellow${gotiNum}Posi");
+    print("Bluepath/bluePathMap : ${bluePathMap[posiNumber[gotiNum]]}");
+    print("Bluepath/bluePosiNumber[$gotiNum] : ${posiNumber[gotiNum]}");
+    return bluePathMap[posiNumber[gotiNum]];
   }
 }
