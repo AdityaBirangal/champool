@@ -27,6 +27,10 @@ Map<int, double> fixedPosiNumber = {
   10: 53,
   11: 53,
   12: 53,
+  13: 31,
+  14: 31,
+  15: 31,
+  16: 31,
 };
 
 Map<int, double> posiBottom = {
@@ -42,6 +46,10 @@ Map<int, double> posiBottom = {
   10: 0,
   11: 0,
   12: 0,
+  13: 0,
+  14: 0,
+  15: 0,
+  16: 0,
 };
 
 Map<int, double> posiLeft = {
@@ -57,6 +65,10 @@ Map<int, double> posiLeft = {
   10: 0,
   11: 0,
   12: 0,
+  13: 0,
+  14: 0,
+  15: 0,
+  16: 0,
 };
 
 class PlayScreen extends StatefulWidget {
@@ -348,6 +360,7 @@ class _PlayScreenState extends State<PlayScreen> {
     }
   }
 
+  //update Dice Color
   void updateDiceColor() {
     if (whosTurn == "red") {
       diceColor = Colors.red;
@@ -360,6 +373,7 @@ class _PlayScreenState extends State<PlayScreen> {
     }
   }
 
+  //get Goti Color using gotiNum
   String getGotiColor(int gotiNum) {
     String myColorString;
     if (gotiNum == 1 || gotiNum == 2 || gotiNum == 3 || gotiNum == 4) {
@@ -380,6 +394,7 @@ class _PlayScreenState extends State<PlayScreen> {
     return myColorString;
   }
 
+  //Goti Function
   Positioned Goti({int gotiNum}) {
     Color myColor;
     String myColorString = getGotiColor(gotiNum);
