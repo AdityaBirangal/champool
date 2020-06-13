@@ -247,9 +247,8 @@ class _PlayScreenState extends State<PlayScreen> {
     setState(() {});
 
     fixedPosiNumber[gotiNum] =
-    bluePath.bluePathMap[bluePath.posiNumber[gotiNum]];
-    print(
-        "Updated bluePosiNumber[$gotiNum] : ${bluePath.posiNumber[gotiNum]}");
+        bluePath.bluePathMap[bluePath.posiNumber[gotiNum]];
+    print("Updated bluePosiNumber[$gotiNum] : ${bluePath.posiNumber[gotiNum]}");
     print(
         "Updated fixedPosiNumber[$gotiNum] : ${bluePath.bluePathMap[bluePath.posiNumber[gotiNum]]}");
   }
@@ -454,6 +453,8 @@ class _PlayScreenState extends State<PlayScreen> {
                 updateGreenPosi(gotiNum: gotiNum);
               } else if (myColorString == "yellow") {
                 updateYellowPosi(gotiNum: gotiNum);
+              } else if (myColorString == "blue") {
+                updateBluePosi(gotiNum: gotiNum);
               }
               i++;
             }
@@ -463,6 +464,8 @@ class _PlayScreenState extends State<PlayScreen> {
             } else if (myColorString == "green") {
               whosTurn = "yellow";
             } else if (myColorString == "yellow") {
+              whosTurn = "blue";
+            } else if (myColorString == "blue") {
               whosTurn = "red";
             }
 
