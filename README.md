@@ -1,6 +1,26 @@
 # Champool : Indian Ludo
 
-This is Champool Game developed in Flutter
+![GitHub followers](https://img.shields.io/github/followers/AdityaBirangal?label=Follow&style=social)
+![GitHub forks](https://img.shields.io/github/forks/AdityaBirangal/champool?style=social)
+![GitHub stars](https://img.shields.io/github/stars/AdityaBirangal/champool?style=social)
+![Twitter Follow](https://img.shields.io/twitter/follow/AdityaBirangal?style=social)
+
+
+### Play Live : [Click Here](https://adityabirangal.github.io/champool/build/web/index.html#/)
+
+## ScreenShots
+<table style="width:100%">
+  <tr>
+    <th>MenuScreen</th>
+    <th>PlayScreen</th>
+    <th>Champool Demo</th>
+  </tr>
+  <tr>
+    <td><img src="Demo/MenuScreen.png"/></td>
+    <td><img src="Demo/PlayScreen.png"/></td>
+    <td><img src="Demo/Champool_Demo.gif"/></td>
+  </tr>
+</table>
 
 ## Getting Started
 
