@@ -18,26 +18,16 @@ class _DiceState extends State<Dice> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        children: <Widget>[
-          Container(
-            color: diceColor,
-            height: 70,
-            child: GestureDetector(
-              child: Image.asset("images/diceImages/dice${myNum.floor()}.png"),
-              onTap: () {
-                changeNum();
-                setState(() {});
-              },
-            ),
-          ),
-          TextField(
-            decoration: InputDecoration(hintText: "Enter Increment"),
-            onChanged: (value) {
-              myNum = int.parse(value);
-            },
-          ),
-        ],
+      child: Container(
+        color: diceColor,
+        height: 100,
+        child: GestureDetector(
+          child: Image.asset("images/diceImages/dice${myNum.floor()}.png"),
+          onTap: () {
+            changeNum();
+            setState(() {});
+          },
+        ),
       ),
     );
   }

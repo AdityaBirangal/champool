@@ -104,6 +104,10 @@ class _PlayScreenState extends State<PlayScreen> {
   Widget build(BuildContext context) {
     increment = 1; //To increase Goti 1 by 1
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Champool : Indian Ludo"),
+        backgroundColor: Colors.greenAccent,
+      ),
       backgroundColor: Colors.greenAccent,
       body: Center(
         child: Column(
@@ -142,35 +146,10 @@ class _PlayScreenState extends State<PlayScreen> {
                 Goti(gotiNum: 16),
               ],
             ),
-            Text("WhosTurn : $whosTurn"),
+            SizedBox(
+              height: 30,
+            ),
             Dice(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                FlatButton(
-                  color: Colors.redAccent,
-                  child: Text(
-                    "Extra",
-                  ),
-                  onPressed: () {
-                    updateDiceColor();
-                    setState(() {});
-                  },
-                ),
-              ],
-            ),
-            SizedBox(height: 5),
-            FlatButton(
-              padding: EdgeInsets.all(5),
-              color: Colors.redAccent,
-              child: Text(
-                "    Back    ",
-                style: TextStyle(fontSize: 30),
-              ),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
           ],
         ),
       ),
