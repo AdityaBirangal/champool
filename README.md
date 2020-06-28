@@ -1,4 +1,4 @@
-# champool
+# Champool : Indian Ludo
 
 This is Champool Game developed in Flutter
 
