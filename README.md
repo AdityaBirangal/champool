@@ -1,4 +1,5 @@
 # Champool : Indian Ludo
+Note : This is Flutter App. Dart languege is being used in this Project (Not JavaScript)
 
 ![GitHub followers](https://img.shields.io/github/followers/AdityaBirangal?label=Follow&style=social)
 ![GitHub forks](https://img.shields.io/github/forks/AdityaBirangal/champool?style=social)
